@@ -17,6 +17,7 @@ body {
 
 .navbar.bg-primary {
   background-color: var(--snotic-ink) !important;
+  background-image: none;
   border-bottom: 4px solid var(--snotic-yellow);
 }
 

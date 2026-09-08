@@ -44,7 +44,6 @@ nav:
       - Monitoring and incidents: self-hosted/0.1.30-rc1/monitoring-and-incidents.md
       - Upgrades and rollback: self-hosted/0.1.30-rc1/upgrades-and-rollback.md
       - Troubleshooting: self-hosted/0.1.30-rc1/troubleshooting.md
-      - Monitoring and incidents: self-hosted/0.1.30-rc1/monitoring-and-incidents.md
       - Reference:
           - Configuration: self-hosted/0.1.30-rc1/configuration.md
           - CLI: self-hosted/0.1.30-rc1/cli.md
