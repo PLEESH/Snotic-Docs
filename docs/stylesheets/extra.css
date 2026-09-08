@@ -1,0 +1,92 @@
+:root {
+  --snotic-ink: #171717;
+  --snotic-paper: #ffffff;
+  --snotic-soft: #f4f6f8;
+  --snotic-yellow: #f0c800;
+  --snotic-blue: #1769aa;
+  --snotic-green: #18794e;
+  --snotic-red: #b42318;
+  --snotic-border: #d5d9de;
+}
+
+body {
+  color: var(--snotic-ink);
+  background: var(--snotic-paper);
+  letter-spacing: 0;
+}
+
+.navbar.bg-primary {
+  background-color: var(--snotic-ink) !important;
+  background-image: none;
+  border-bottom: 4px solid var(--snotic-yellow);
+}
+
+.navbar-brand,
+.navbar-nav > li > a {
+  color: var(--snotic-paper) !important;
+}
+
+a {
+  color: var(--snotic-blue);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--snotic-ink);
+  letter-spacing: 0;
+  overflow-wrap: anywhere;
+}
+
+code {
+  overflow-wrap: anywhere;
+}
+
+pre code {
+  overflow-wrap: normal;
+}
+
+blockquote {
+  border-left: 5px solid var(--snotic-yellow);
+  background: var(--snotic-soft);
+  padding: 0.75rem 1rem;
+}
+
+.admonition {
+  border: 1px solid var(--snotic-border);
+  border-left: 5px solid var(--snotic-blue);
+  border-radius: 6px;
+  box-shadow: none;
+  padding: 0.8rem 1rem;
+}
+
+.admonition.warning,
+.admonition.danger {
+  border-left-color: var(--snotic-red);
+}
+
+.admonition.note {
+  border-left-color: var(--snotic-green);
+}
+
+table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.bs-sidebar .nav > li > a {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 767px) {
+  .container {
+    width: auto;
+  }
+
+  pre {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+}

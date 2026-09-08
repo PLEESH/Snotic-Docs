@@ -1,0 +1,134 @@
+# Encrypted Backups and Recovery
+
+> **Version: Snotic Self-Hosted 0.1.30~rc1 | Status: Early Access**
+
+The Self-Hosted package enables a unique local backup-encryption key. Local
+encrypted backup and restore work without AWS or S3.
+
+## Create and inspect backups
+
+```shell
+sudo /opt/hipanel/bin/hipanel sites backup -domain example.com
+sudo /opt/hipanel/bin/hipanel sites backups -domain example.com
+sudo /opt/hipanel/bin/hipanel sites backup-all
+```
+
+The daily `hipanel-backup.timer` runs the packaged backup service. Verify timer
+health and the resulting artifacts rather than relying only on its schedule:
+
+```shell
+sudo systemctl status hipanel-backup.timer
+sudo systemctl list-timers hipanel-backup.timer
+```
+
+In the browser, **Create Backup**, **Backup & Sync All**, and **Backup History**
+show operation progress and local/S3 status. An S3 status of **unknown** means
+the live remote listing failed; it is not proof that an object is present or
+absent.
+
+## Preserve recovery material off server
+
+Store protected, encrypted copies of:
+
+- `/etc/hipanel/config.json`;
+- `/etc/hipanel/secrets.key`;
+- `/etc/hipanel/backup.key`;
+- `/var/lib/hipanel`;
+- `/var/backups/hipanel`;
+- site roots under `/var/www`;
+- Nginx and PHP-FPM site configuration;
+- MariaDB data or consistent dumps; and
+- certificate state.
+
+The backup key is required to decrypt encrypted backups. The secret key is
+required to recover encrypted settings and site database credentials. Preserve
+their original ownership and permissions and never paste their contents into
+chat, tickets, email, or documentation.
+
+## Preview before restore
+
+Preview the latest local backup:
+
+```shell
+sudo /opt/hipanel/bin/hipanel sites restore -domain example.com -dry-run
+```
+
+Preview a named archive:
+
+```shell
+sudo /opt/hipanel/bin/hipanel sites restore -domain example.com -path example.com-20260908T010000Z.tar.gz.enc -dry-run
+```
+
+The preview checks archive safety and expected WordPress content without
+changing the site.
+
+## Perform a real restore
+
+!!! danger
+    A real restore replaces current site files and database state. Take a
+    separate current backup, retain the matching keys, review the preview, and
+    confirm the target domain before proceeding.
+
+```shell
+sudo /opt/hipanel/bin/hipanel sites restore -domain example.com -path example.com-20260908T010000Z.tar.gz.enc
+```
+
+In the browser, select **Preview** for the exact Backup History entry, then
+select **Restore** and type the target domain. Uploaded `.tar.gz`, `.tgz`, and
+`.tar.gz.enc` files also require **Preview File** before **Restore From File**.
+
+After restoration, verify:
+
+```shell
+curl --fail --silent --show-error http://127.0.0.1:8080/healthz
+curl --fail --silent --show-error http://127.0.0.1:8080/readyz
+sudo /opt/hipanel/bin/hipanel sites list
+sudo /opt/hipanel/bin/hipanel sites backups -domain example.com
+```
+
+Also verify browser login, WordPress login, representative content, TLS, and a
+new post-restore backup.
+
+## Recover onto a replacement host
+
+Keep the replacement isolated from user traffic until recovery is complete.
+
+1. Provision a compatible fresh Ubuntu 22.04 or 24.04 amd64 server.
+2. Verify and install the same package version.
+3. Stop `hipanel.service`.
+4. Restore the preserved configuration, both keys, application state, backups,
+   site content, web configuration, and certificates with their original
+   ownership and modes.
+5. Restore databases using exactly one of the methods below.
+6. Start `hipanel.service` and run health, readiness, authentication, site, TLS,
+   and real restore checks before directing traffic to the host.
+
+**Consistent logical dumps:** Keep `hipanel.service` stopped, keep MariaDB
+running, recreate the required databases and grants, and import each consistent
+dump through the approved MariaDB restore procedure. Validate the imported
+tables and application credentials before starting Snotic.
+
+**Raw MariaDB data directory:** Use only a backup compatible with the installed
+MariaDB version. Stop both services before replacing database files:
+
+!!! danger
+    Replacing the MariaDB data directory destroys the destination database
+    state. Retain a separate destination snapshot, verify the source backup and
+    database-version compatibility, and preserve the original ownership and
+    modes. Do not copy raw files into a running database.
+
+```shell
+sudo systemctl stop hipanel.service
+sudo systemctl stop mariadb.service
+# Restore the verified raw MariaDB data directory with its original ownership and modes.
+sudo systemctl start mariadb.service
+sudo systemctl status mariadb.service
+```
+
+When recovery material consists of Snotic encrypted site backups instead of a
+host-level database copy, restore the application state and exact keys, start
+Snotic, then use the preview and real `hipanel sites restore` workflow above.
+
+Do not generate replacement keys when encrypted data must remain recoverable.
+Schedule recurring real restore drills; an archive that has never been restored
+is not sufficient recovery evidence.

@@ -1,0 +1,57 @@
+site_name: Snotic Documentation
+site_url: https://docs.snotic.com/
+site_description: Public documentation for Snotic products by Pleesh
+copyright: Snotic is a product developed and operated by Pleesh.
+docs_dir: docs
+site_dir: site
+strict: true
+
+theme:
+  name: mkdocs
+  locale: en
+  highlightjs: true
+  hljs_languages:
+    - bash
+    - json
+
+plugins:
+  - search:
+      lang: en
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - tables
+  - toc:
+      permalink: true
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - Documentation home: index.md
+  - Self-Hosted 0.1.30~rc1:
+      - Overview: self-hosted/0.1.30-rc1/index.md
+      - Requirements and responsibilities: self-hosted/0.1.30-rc1/requirements.md
+      - Obtain and verify: self-hosted/0.1.30-rc1/obtain-and-verify.md
+      - Preflight and install: self-hosted/0.1.30-rc1/install.md
+      - Access, HTTPS, and MFA: self-hosted/0.1.30-rc1/access-and-security.md
+      - Manage WordPress sites: self-hosted/0.1.30-rc1/sites.md
+      - Site Exporter migration: self-hosted/0.1.30-rc1/site-exporter.md
+      - Backups and recovery: self-hosted/0.1.30-rc1/backups-and-recovery.md
+      - Optional S3 storage: self-hosted/0.1.30-rc1/s3.md
+      - Monitoring and incidents: self-hosted/0.1.30-rc1/monitoring-and-incidents.md
+      - Upgrades and rollback: self-hosted/0.1.30-rc1/upgrades-and-rollback.md
+      - Troubleshooting: self-hosted/0.1.30-rc1/troubleshooting.md
+      - Reference:
+          - Configuration: self-hosted/0.1.30-rc1/configuration.md
+          - CLI: self-hosted/0.1.30-rc1/cli.md
+          - API: self-hosted/0.1.30-rc1/api.md
+          - Architecture: self-hosted/0.1.30-rc1/architecture.md
+      - Policies and release:
+          - Release notes: self-hosted/0.1.30-rc1/release-notes.md
+          - Compatibility and limitations: self-hosted/0.1.30-rc1/compatibility.md
+          - Early Access use terms: self-hosted/0.1.30-rc1/use-terms.md
+          - Third-party notices: self-hosted/0.1.30-rc1/third-party-notices.md
+          - Security and contact: self-hosted/0.1.30-rc1/security.md
