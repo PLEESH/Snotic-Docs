@@ -16,6 +16,14 @@ INVENTED_CLI = re.compile(
     re.MULTILINE,
 )
 INVENTED_SERVICE = re.compile(r"\bsnotic(?:-[a-z0-9-]+)?\.(?:service|timer)\b")
+HIPANEL_UNIT = re.compile(r"\bhipanel(?:-[a-z0-9-]+)?\.(?:service|timer)\b")
+RC1_UNITS = {
+    "hipanel.service",
+    "hipanel-backup.service",
+    "hipanel-backup.timer",
+    "hipanel-ops-alert.service",
+    "hipanel-ops-alert.timer",
+}
 
 
 def normalize_shell(block: str) -> str:
@@ -60,6 +68,9 @@ def main() -> int:
         failures.append("documentation invents a snotic CLI command; rc1 uses hipanel")
     if INVENTED_SERVICE.search(all_content):
         failures.append("documentation invents a snotic systemd unit; rc1 uses hipanel units")
+    invalid_units = sorted(set(HIPANEL_UNIT.findall(all_content)) - RC1_UNITS)
+    if invalid_units:
+        failures.append("documentation uses units absent from rc1: " + ", ".join(invalid_units))
     if "apt-key" in all_content:
         failures.append("documentation uses deprecated apt-key")
     if "/opt/hipanel/bin/hipanel" not in all_content:

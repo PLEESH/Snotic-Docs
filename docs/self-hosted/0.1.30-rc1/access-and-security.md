@@ -20,6 +20,30 @@ Create a customer-controlled DNS record for the panel hostname pointing to the
 server. Review the package's Nginx proxy and replace `server_name _` with that
 exact hostname.
 
+On a fresh Ubuntu host, the stock Nginx site and the Snotic proxy both declare a
+default server. Remove the stock enabled-site link only when its target and file
+checksum still match the unmodified `nginx-common` package conffile:
+
+!!! danger
+    Removing an enabled Nginx site changes request routing. Stop if the checksum
+    comparison fails, the link points elsewhere, or this is not the fresh host
+    accepted by the preflight. Review the existing web-server configuration
+    instead of deleting it.
+
+```shell
+set -eu
+default_conf=/etc/nginx/sites-available/default
+if test -L /etc/nginx/sites-enabled/default; then
+  expected_md5="$(dpkg-query -W -f='${Conffiles}\n' nginx-common | awk '$1 == "/etc/nginx/sites-available/default" {print $2}')"
+  test -n "$expected_md5"
+  test "$(readlink -f /etc/nginx/sites-enabled/default)" = "$default_conf"
+  test "$(md5sum "$default_conf" | awk '{print $1}')" = "$expected_md5"
+  sudo rm -- /etc/nginx/sites-enabled/default
+fi
+```
+
+Then enable the reviewed Snotic proxy:
+
 ```shell
 sudoedit /etc/nginx/sites-available/hipanel.conf
 sudo ln -s /etc/nginx/sites-available/hipanel.conf /etc/nginx/sites-enabled/hipanel.conf
@@ -27,7 +51,7 @@ sudo nginx -t
 sudo systemctl reload nginx
 ```
 
-If the enabled symlink already exists and points to the reviewed file, do not
+If the Snotic symlink already exists and points to the reviewed file, do not
 create a second one. The package does not change firewall or DNS policy.
 
 After DNS resolves correctly and ports 80 and 443 are authorized:

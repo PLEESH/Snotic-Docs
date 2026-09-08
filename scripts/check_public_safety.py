@@ -13,10 +13,14 @@ TEXT_SUFFIXES = {
     "",
     ".css",
     ".html",
+    ".in",
+    ".ini",
     ".js",
     ".json",
     ".md",
+    ".py",
     ".txt",
+    ".toml",
     ".xml",
     ".yml",
     ".yaml",
@@ -47,6 +51,8 @@ def text_files(root: Path):
     for path in sorted(root.rglob("*")):
         rel = path.relative_to(root)
         if any(part in SKIP_PARTS for part in rel.parts):
+            continue
+        if path.resolve() == Path(__file__).resolve():
             continue
         if path.is_file() and path.suffix.lower() in TEXT_SUFFIXES:
             yield path

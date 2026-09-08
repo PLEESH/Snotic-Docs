@@ -91,14 +91,43 @@ new post-restore backup.
 
 ## Recover onto a replacement host
 
+Keep the replacement isolated from user traffic until recovery is complete.
+
 1. Provision a compatible fresh Ubuntu 22.04 or 24.04 amd64 server.
 2. Verify and install the same package version.
 3. Stop `hipanel.service`.
-4. Restore the preserved configuration, both keys, application state, site
-   content, databases, backups, web configuration, and certificates with their
-   original ownership and modes.
-5. Start the service and run health, readiness, authentication, site, TLS, and
-   real restore checks.
+4. Restore the preserved configuration, both keys, application state, backups,
+   site content, web configuration, and certificates with their original
+   ownership and modes.
+5. Restore databases using exactly one of the methods below.
+6. Start `hipanel.service` and run health, readiness, authentication, site, TLS,
+   and real restore checks before directing traffic to the host.
+
+**Consistent logical dumps:** Keep `hipanel.service` stopped, keep MariaDB
+running, recreate the required databases and grants, and import each consistent
+dump through the approved MariaDB restore procedure. Validate the imported
+tables and application credentials before starting Snotic.
+
+**Raw MariaDB data directory:** Use only a backup compatible with the installed
+MariaDB version. Stop both services before replacing database files:
+
+!!! danger
+    Replacing the MariaDB data directory destroys the destination database
+    state. Retain a separate destination snapshot, verify the source backup and
+    database-version compatibility, and preserve the original ownership and
+    modes. Do not copy raw files into a running database.
+
+```shell
+sudo systemctl stop hipanel.service
+sudo systemctl stop mariadb.service
+# Restore the verified raw MariaDB data directory with its original ownership and modes.
+sudo systemctl start mariadb.service
+sudo systemctl status mariadb.service
+```
+
+When recovery material consists of Snotic encrypted site backups instead of a
+host-level database copy, restore the application state and exact keys, start
+Snotic, then use the preview and real `hipanel sites restore` workflow above.
 
 Do not generate replacement keys when encrypted data must remain recoverable.
 Schedule recurring real restore drills; an archive that has never been restored
