@@ -26,7 +26,9 @@ release secret belongs here.
 ```shell
 python3 -m venv .venv
 . .venv/bin/activate
-python -m pip install --requirement requirements.txt
+python -m pip install --require-hashes --requirement requirements.txt
+python -m compileall -q scripts
+python -m unittest discover -s tests -p 'test_*.py'
 python scripts/check_commands.py docs
 python scripts/check_links.py docs
 python scripts/check_public_safety.py docs
