@@ -1,6 +1,7 @@
 import hashlib
 import importlib.util
 import json
+import os
 from pathlib import Path
 import re
 import subprocess
@@ -105,3 +106,52 @@ class CompanionTests(unittest.TestCase):
                     file.write_bytes(payload)
                 result = subprocess.run(["bash", "-c", block], cwd=tmp, capture_output=True)
                 self.assertEqual(result.returncode, expected)
+
+    def run_download_example(self, root, mode):
+        spec = importlib.util.spec_from_file_location("delivery", ROOT / "scripts/sync_delivery_docs.py")
+        delivery = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(delivery)
+        command = delivery.generated_blocks(self.inventory)["COMMAND"].removeprefix("```shell\n").removesuffix("\n```")
+        bin_dir = root / "bin"
+        bin_dir.mkdir()
+        fake_curl = bin_dir / "curl"
+        fake_curl.write_text(
+            '#!/bin/sh\nprintf "call\\n" >> "$CALL_LOG"\n'
+            '[ "$FAIL_CURL" != yes ] || exit 22\n'
+            'while [ "$#" -gt 0 ]; do\n'
+            '  if [ "$1" = --output ]; then shift; : > "$1"; fi\n'
+            '  shift\ndone\n'
+        )
+        fake_curl.chmod(0o700)
+        if mode == "existing-directory":
+            (root / "snotic-rc1-download").mkdir()
+            (root / "snotic-rc1-download/sentinel").write_text("preserve")
+        if mode == "failed-cd":
+            fake_mkdir = bin_dir / "mkdir"
+            fake_mkdir.write_text("#!/bin/sh\nexit 0\n")
+            fake_mkdir.chmod(0o700)
+        env = dict(os.environ, PATH=str(bin_dir) + os.pathsep + os.environ["PATH"],
+                   CALL_LOG=str(root / "calls"), FAIL_CURL="yes" if mode == "failed-download" else "no")
+        result = subprocess.run(["bash", "-c", command], cwd=root, env=env, capture_output=True, text=True)
+        calls = (root / "calls").read_text().splitlines() if (root / "calls").exists() else []
+        return result, calls
+
+    def test_download_example_stops_on_failed_directory_or_first_download(self):
+        for mode, expected_calls in (("existing-directory", 0), ("failed-cd", 0), ("failed-download", 1)):
+            with self.subTest(mode=mode), tempfile.TemporaryDirectory() as tmp:
+                root = Path(tmp)
+                result, calls = self.run_download_example(root, mode)
+                self.assertNotEqual(result.returncode, 0, result.stdout)
+                self.assertEqual(len(calls), expected_calls)
+                if mode == "existing-directory":
+                    self.assertEqual((root / "snotic-rc1-download/sentinel").read_text(), "preserve")
+                    self.assertEqual(len(list((root / "snotic-rc1-download").iterdir())), 1)
+
+    def test_download_example_requests_every_required_file_on_success(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            result, calls = self.run_download_example(root, "success")
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertEqual(len(calls), len(self.inventory["files"]))
+            self.assertEqual({p.name for p in (root / "snotic-rc1-download").iterdir()},
+                             {f["name"] for f in self.inventory["files"]})

@@ -59,11 +59,11 @@ download directory and start again. Do not merge old and new download sets.
 ```shell
 (
 set -eu
-mkdir snotic-rc1-download
-cd snotic-rc1-download
+mkdir snotic-rc1-download || exit 1
+cd snotic-rc1-download || exit 1
 while IFS= read -r filename; do
   curl --fail --show-error --silent --location --proto "=https" --proto-redir "=https" \
-    --output "$filename" "https://packages.snotic.com/self-hosted/0.1.30-rc1/$filename"
+    --output "$filename" "https://packages.snotic.com/self-hosted/0.1.30-rc1/$filename" || exit 1
 done <<'REQUIRED_FILES'
 hipanel_0.1.30~rc1_amd64.tar.gz
 hipanel_0.1.30~rc1_amd64.tar.gz.asc

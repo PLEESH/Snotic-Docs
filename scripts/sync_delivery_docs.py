@@ -14,10 +14,10 @@ def generated_blocks(data):
     links = "\n".join(f'- [{f["label"]}]({base}{f["name"]}).' for f in data["files"])
     names = "\n".join(f["name"] for f in data["files"])
     command = (
-        "```shell\n(\nset -eu\nmkdir snotic-rc1-download\ncd snotic-rc1-download\n"
+        "```shell\n(\nset -eu\nmkdir snotic-rc1-download || exit 1\ncd snotic-rc1-download || exit 1\n"
         "while IFS= read -r filename; do\n"
         '  curl --fail --show-error --silent --location --proto "=https" --proto-redir "=https" \\\n'
-        f'    --output "$filename" "{base}$filename"\n'
+        f'    --output "$filename" "{base}$filename" || exit 1\n'
         "done <<'REQUIRED_FILES'\n" + names + "\nREQUIRED_FILES\n) && cd snotic-rc1-download\n```"
     )
     checksums = (
