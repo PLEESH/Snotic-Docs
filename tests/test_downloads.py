@@ -41,7 +41,7 @@ class DownloadTests(unittest.TestCase):
             return build.load_inventory(path)
 
     def test_exact_inventory_and_archive_identity(self):
-        self.assertEqual(sum(f["size"] for f in self.data["files"]), 49246632)
+        self.assertEqual(sum(f["size"] for f in self.data["files"]), 12360540)
         for mutation in ("missing", "duplicate", "extra", "path", "size", "hash", "archive", "signer"):
             with self.subTest(mutation=mutation):
                 data = copy.deepcopy(self.data)
@@ -67,7 +67,7 @@ class DownloadTests(unittest.TestCase):
     def test_page_exact_untokened_downloads_and_metadata(self):
         html = build.render(self.data)
         links = Links(html)
-        self.assertEqual(len(links.downloads), 11)  # Main action repeats the archive.
+        self.assertEqual(len(links.downloads), len(self.data["files"]) + 1)
         self.assertEqual(set(links.downloads), {
             (self.data["path"] + f["name"], f["name"]) for f in self.data["files"]
         })
@@ -84,9 +84,9 @@ class DownloadTests(unittest.TestCase):
         self.assertNotIn("$", html)
         self.assertEqual(build.render(self.data), html)
 
-    def test_all_ten_immutable_size_and_digest_pairs(self):
+    def test_all_immutable_identities_and_mime_types(self):
         for index, item in enumerate(self.data["files"]):
-            for field in ("size", "sha256"):
+            for field in ("size", "sha256", "content_type"):
                 with self.subTest(file=item["name"], field=field):
                     data = copy.deepcopy(self.data)
                     data["files"][index][field] = item["size"] + 1 if field == "size" else "0" * 64
@@ -111,7 +111,7 @@ class DownloadTests(unittest.TestCase):
         import re
         text = (ROOT / "docs/self-hosted/0.1.30-rc1/obtain-and-verify.md").read_text()
         urls = re.findall(r"\]\((https://packages\.snotic\.com/self-hosted/[^)]+)\)", text)
-        self.assertEqual(len(urls), 10)
+        self.assertEqual(len(urls), len(self.data["files"]))
         self.assertEqual(set(urls), {
             "https://packages.snotic.com" + self.data["path"] + item["name"]
             for item in self.data["files"]
@@ -122,6 +122,25 @@ class DownloadTests(unittest.TestCase):
         html = build.render(self.data)
         self.assertNotIn('<img src="x"', html)
         self.assertIn("&lt;img", html)
+
+    def test_owner_custody_files_are_rejected_and_never_rendered(self):
+        for suffix in ("", ".asc", ".sha256", ".sha256.asc"):
+            data = copy.deepcopy(self.data)
+            data["files"][0]["name"] = "Snotic-Self-Hosted-0.1.30-rc1-owner-handoff.tar.gz" + suffix
+            with self.assertRaisesRegex(ValueError, "cannot be published"):
+                self.load(data)
+        data = copy.deepcopy(self.data)
+        data["files"][0]["name"] = "producer-custody.json"
+        with self.assertRaisesRegex(ValueError, "cannot be published"):
+            self.load(data)
+        self.assertNotIn("owner-handoff", build.render(self.data))
+        self.assertNotIn("custody", build.render(self.data))
+
+    def test_wrong_nested_package_identity_is_rejected(self):
+        data = copy.deepcopy(self.data)
+        data["package"]["sha256"] = "0" * 64
+        with self.assertRaisesRegex(ValueError, "product identity"):
+            self.load(data)
 
     def test_byte_verification_rejects_changed_missing_and_symlink(self):
         import hashlib

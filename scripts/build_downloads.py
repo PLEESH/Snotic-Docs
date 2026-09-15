@@ -13,17 +13,11 @@ from string import Template
 
 
 ROOT = Path(__file__).resolve().parents[1]
-ARCHIVE = "Snotic-Self-Hosted-0.1.30-rc1-owner-handoff.tar.gz"
-EXPECTED = {
-    ARCHIVE, f"{ARCHIVE}.asc", f"{ARCHIVE}.sha256", f"{ARCHIVE}.sha256.asc",
-    "hipanel-archive-key.asc", "hipanel-archive-key.asc.asc",
-    "hipanel-archive-keyring.gpg", "hipanel-archive-keyring.gpg.asc",
-    "INSTALL.txt", "INSTALL.txt.asc",
-}
+ARCHIVE = "hipanel_0.1.30~rc1_amd64.tar.gz"
 FINGERPRINT = "26BAEB9BC68C2AB633FD6B822473AD1517C2A642"
-ARCHIVE_DIGEST = "2ca1f61225d85d53ac969456deb181e5cb185b7a4d0cb63b6a16843102485456"
-# Pins all ten approved (filename, size, SHA-256) tuples without a second table.
-INVENTORY_DIGEST = "ea3904c24d709e0c6e4fe555b44733e52864d335ccd576c9cb57373ad9e254c8"
+ARCHIVE_DIGEST = "05bb2729f85cd3f377a4b3b3e0bff19d7905d0b07db21a536572bef6ffd92d08"
+# Pins the reviewed identities and MIME types without a second inventory table.
+INVENTORY_DIGEST = "50daf2d061c449288d7e667679aee04dce29b7f678e59df3ee43cea436c09187"
 
 
 def load_inventory(path: Path) -> dict:
@@ -33,9 +27,18 @@ def load_inventory(path: Path) -> dict:
     ):
         raise ValueError("unexpected release identity")
     files = data["files"]
-    if len(files) != 10 or {f["name"] for f in files} != EXPECTED:
-        raise ValueError("expected the exact ten-file inventory")
+    if not files or len({f["name"] for f in files}) != len(files):
+        raise ValueError("expected unique publication filenames")
+    if data["archive"] != ARCHIVE or data["package"] != {
+        "name": "hipanel_0.1.30~rc1_amd64.deb",
+        "sha256": "becfff27cae7e8c8bc9edb2eae629ec873e8a555d83d05d77cf8dee16658aa3e",
+    }:
+        raise ValueError("unexpected product identity")
     for item in files:
+        if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._~-]*", item["name"]):
+            raise ValueError("invalid publication filename")
+        if any(marker in item["name"].lower() for marker in ("owner-handoff", "custody")):
+            raise ValueError("owner-custody artifacts cannot be published")
         if type(item["size"]) is not int or item["size"] <= 0:
             raise ValueError("invalid file size")
         if not re.fullmatch(r"[a-f0-9]{64}", item["sha256"]):
@@ -43,18 +46,18 @@ def load_inventory(path: Path) -> dict:
         if not isinstance(item["label"], str) or not item["label"].strip():
             raise ValueError("missing file label")
         if item["name"] == ARCHIVE and (item["size"], item["sha256"]) != (
-            49230129, ARCHIVE_DIGEST
+            12344056, ARCHIVE_DIGEST
         ):
             raise ValueError("immutable archive identity differs")
-    identities = sorted((f["name"], f["size"], f["sha256"]) for f in files)
+    identities = sorted((f["name"], f["size"], f["sha256"], f["content_type"]) for f in files)
     encoded = json.dumps(identities, separators=(",", ":")).encode("ascii")
     if hashlib.sha256(encoded).hexdigest() != INVENTORY_DIGEST:
-        raise ValueError("immutable ten-file inventory differs")
+        raise ValueError("immutable public inventory differs")
     return data
 
 
 def verify_assets(data: dict, source: Path) -> None:
-    """Read only the explicit ten-file allowlist from a local verified asset set."""
+    """Read only the reviewed allowlist from a local verified asset set."""
     for item in data["files"]:
         path = source / item["name"]
         if path.is_symlink() or not path.is_file():
@@ -80,9 +83,11 @@ def render(data: dict) -> str:
             f'<code>{item["sha256"]}</code></div></li>'
         )
     template = Template((ROOT / "downloads/page.html").read_text(encoding="utf-8"))
+    archive = next(item for item in data["files"] if item["name"] == data["archive"])
     return template.substitute(
         archive_url=data["path"] + ARCHIVE, archive_name=ARCHIVE,
-        archive_size=f"{49230129:,}", file_rows="\n".join(rows),
+        archive_size=f"{archive['size']:,}", file_rows="\n".join(rows),
+        file_count=str(len(data["files"])),
         fingerprint=data["fingerprint"],
     )
 

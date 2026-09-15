@@ -46,9 +46,15 @@ builds are eligible for GitHub Pages deployment.
 
 ## Separate download page
 
-`downloads/rc1.json` pins the ten approved filenames, sizes, and SHA-256 values.
+`downloads/rc1.json` is the single reviewed public inventory for both page
+generation and distribution scope. It pins filenames, sizes, SHA-256 values,
+MIME types and the unchanged product bundle/package identity. Infrastructure
+consumes this exact file from a pinned commit and verifies its SHA-256; do not
+maintain a separately authored infrastructure inventory. File counts and totals
+are derived from the inventory, not assumed. Private handoff/custody artifacts
+are rejected by validation and are never download candidates.
 The builder produces only `index.html` and `styles.css` in a new or empty output
-directory. `--verify-assets ASSET_DIRECTORY` additionally checks the ten local
+directory. `--verify-assets ASSET_DIRECTORY` additionally checks the selected local
 release files without copying or changing them. Never commit those files here.
 
 DevOps deploys the reviewed page through the separately approved distribution
@@ -57,7 +63,7 @@ URLs include `/self-hosted/0.1.30-rc1/`. Only `/` uses a default-root object;
 no S3 website-style version-directory indexing is assumed. No page JavaScript,
 forms, authentication, analytics, external fonts, or viewer tokens are used.
 
-Keep this change in draft until the complete handoff passes its public-content
+Keep this change in draft until the selected product distribution passes its public-content
 gate, the infrastructure execution plan is approved, and independent anonymous
 GET/checksum/signature and browser verification succeeds. Only then merge the
 documentation download-link change and verify Pages again. Page output is
