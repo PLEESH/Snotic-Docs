@@ -39,7 +39,8 @@ support.
 
 Have these ready:
 
-- the complete private distribution handoff from Pleesh;
+- the complete [verified distribution](obtain-and-verify.md);
+- permission to install under the [applicable use terms](use-terms.md);
 - the authorized signing fingerprint confirmed through a separate trusted
   Pleesh contact;
 - root or passwordless authorized `sudo` access;
@@ -47,5 +48,5 @@ Have these ready:
 - a customer-controlled panel hostname for normal HTTPS browser access; and
 - a secure password manager for administrator credentials and recovery codes.
 
-Do not send the recipient private-repository credentials. The supplied handoff
+Do not send the recipient private-repository credentials. The signed product bundle
 contains everything required to verify and install the release.

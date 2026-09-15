@@ -9,8 +9,10 @@ Pleesh.
 Early Access documentation set. It covers an approved recipient operating the
 supplied binary distribution on one customer-controlled Ubuntu server.
 
-This documentation does not make the core application publicly downloadable or
-open source. Distribution rights and limitations are defined by the supplied
+The [release files](https://packages.snotic.com/) are available to download
+without signing in. Downloading does not itself grant installation or broader
+use rights, and the core application is not open source. Rights and limitations
+are defined by the supplied
 [Early Access use terms](self-hosted/0.1.30-rc1/use-terms.md).
 
 ## Product names

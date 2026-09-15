@@ -23,8 +23,46 @@ The package includes the official WP-CLI `2.12.0` PHAR at
 The reviewed upstream source is the `wp-cli/wp-cli-bundle` `v2.12.0` tag at
 commit `d639a3dab65f4b935b21c61ea3662bf3258a03a5`. Its production Composer lock
 contains 54 packages: 53 declare MIT and one (`mck89/peast`) declares
-BSD-3-Clause. The PHAR also contains the MIT-licensed bundle root, for 55
-audited components in total.
+BSD-3-Clause. The supplied notice inventory also includes the MIT-licensed
+bundle root, for 55 recorded components. This source-lock inventory is not
+complete for the actual PHAR payload.
+
+The PHAR additionally contains `psr/container` `1.0.0` (three PHP interface
+files) and `wp-cli/wp-cli-tests` `v4.3.14` (eleven files). Neither is recorded in
+the supplied inventory. The pinned upstream
+[psr/container licence](https://github.com/php-fig/container/blob/b7ce3b176482dbbc1245ebf52b181af44c2cf55f/LICENSE)
+has copyright notices absent from the supplied material. The pinned
+[WP-CLI tests licence](https://github.com/wp-cli/wp-cli-tests/blob/b72c36dd0ebd70547c441f03c9257c3e857af4be/LICENSE)
+has equivalent MIT notice text elsewhere in the package, but its component
+inventory entry is missing. These links document the discrepancy; they do not
+repair or replace the unchanged signed package notices.
+
+## Required RC1 Notice Addendum v1
+
+Retain `Snotic-Self-Hosted-0.1.30-rc1-THIRD-PARTY-NOTICE-ADDENDUM-v1.txt`
+and its signature and checksum files with the software. It supplies the exact
+missing upstream notices and a corrected inventory checked against every member
+of the shipped PHAR, including support/test and generated loader files. This
+is required distribution material, not a substitute URL or optional reading.
+The [complete download and verification procedure](obtain-and-verify.md) includes
+it and fails when it or its verification material is missing.
+
+The full member review also identifies Requests 2.0.12 nested inside WP-CLI,
+including its ISC notice, the ComplexPie IRI parser's BSD-3-Clause notice and
+Mozilla CA certificate data under MPL-2.0. The addendum includes their complete
+applicable upstream texts and exact source references, separately identifies
+the nested payloads, and corrects the bootstrap attribution to the bundle
+project. A top-level Composer dependency list alone does not cover these files.
+It also includes the complete matching Zend BSD notice for the `glob_brace()`
+adaptation, scoped to that fragment rather than all of WP-CLI's `utils.php`.
+The original copied Zend revision is unspecified; the pinned notice reference
+is not represented as proof of that revision. Retained source-level credits are
+listed distinctly from the directory-level component inventory.
+
+The addendum is bound to the original bundle and package SHA-256 values. It
+does not change the package, bundle, embedded grant or existing signatures.
+Third-party licence rights are unaffected by the core application terms or
+the [public-use eligibility supplement](public-use-supplement-v1.md).
 
 The exact component versions, source commits, declared licences, and copied
 upstream notice files are installed under

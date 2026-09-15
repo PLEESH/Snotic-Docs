@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Snotic Self-Hosted Early Access downloads, signed verification files, and installation documentation.">
+  <title>Snotic Self-Hosted Downloads | Pleesh</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to downloads</a>
+  <header><a class="brand" href="/">Snotic <span>by Pleesh</span></a><nav aria-label="Primary"><a href="https://docs.snotic.com/">Documentation</a></nav></header>
+  <main id="main">
+    <section class="release" aria-labelledby="title">
+      <p class="status">Early Access</p>
+      <h1 id="title">Snotic Self-Hosted</h1>
+      <p class="summary">WordPress server management on your own Ubuntu server.</p>
+      <dl class="facts"><div><dt>Release</dt><dd>0.1.30~rc1</dd></div><div><dt>Ubuntu LTS</dt><dd>22.04 / 24.04</dd></div><div><dt>Architecture</dt><dd>amd64</dd></div></dl>
+      <div class="action"><a class="download" href="https://docs.snotic.com/self-hosted/0.1.30-rc1/obtain-and-verify/#download-all-required-files">Download all required files</a><a href="https://docs.snotic.com/self-hosted/0.1.30-rc1/">Installation guide</a></div>
+      <p class="archive-size">$archive_size bytes &middot; Signed product distribution</p>
+      <p class="permission"><strong>Approved public-use eligibility.</strong> Under the <a href="https://docs.snotic.com/self-hosted/0.1.30-rc1/public-use-supplement-v1/">supplement effective 15 September 2026</a>, a downloader from a Pleesh-provided or Pleesh-authorized public download qualifies as the recipient. The allowance remains one instance on one server per recipient. Repeated downloads add no allowance. All other <a href="https://docs.snotic.com/self-hosted/0.1.30-rc1/use-terms/">use terms</a> and third-party rights remain unchanged.</p>
+      <p class="permission"><strong>Complete distribution required.</strong> Download and retain every file below together, including the signed third-party notice addendum and public-use supplement. A bundle without these documents is an incomplete handoff. The verification procedure checks the entire set before installation.</p>
+    </section>
+    <section aria-labelledby="files-title">
+      <div class="section-title"><h2 id="files-title">Release files</h2><span>$file_count files</span></div>
+      <p>All listed files are required, including both new companion documents and their verification files. Keep them with the bundle offline. Verify every signature and checksum before extracting, running the preflight, or installing.</p>
+      <ul class="files">
+$file_rows
+      </ul>
+    </section>
+    <section aria-labelledby="contents-title">
+      <h2 id="contents-title">Inside the bundle</h2>
+      <p>The unchanged product bundle includes the Debian package, signed release manifest and checksums, configuration and release schemas, SPDX SBOM, preflight, installation guide, release notes, use grant, and third-party notices.</p>
+      <p>Snotic Site Exporter 0.2.0-pilot.2 is included as a ZIP containing its complete PHP source, GPL-2.0-or-later declaration, licence text, README, and notices. The Debian package includes its bundled third-party notices; system dependencies come from the server's configured Ubuntu sources.</p>
+      <p>Package: <code>$package_name</code></p>
+      <div class="digest"><span>Package SHA-256</span><code>$package_digest</code></div>
+    </section>
+    <section aria-labelledby="verify-title">
+      <h2 id="verify-title">Verify the signing identity</h2>
+      <p>Confirm this complete fingerprint through a separate trusted Pleesh contact. Stop if any fingerprint, signature, or checksum differs.</p>
+      <code class="fingerprint">$fingerprint</code>
+      <p><a href="https://docs.snotic.com/self-hosted/0.1.30-rc1/obtain-and-verify/">Verification procedure</a></p>
+      <p>The public key is valid from 7 September 2026 until 8 September 2027 (02:00 UTC). Public keys and their signatures do not independently establish trust in the signer.</p>
+    </section>
+    <section aria-labelledby="limits-title">
+      <h2 id="limits-title">Before you install</h2>
+      <ul class="limits">
+        <li>This is Early Access, not a stable release. Follow the supplied preflight and installation guide.</li>
+        <li>Ubuntu 22.04 and 24.04 amd64 are supported. ARM64 and a conflicting web or database stack are not.</li>
+        <li>There is no public stable APT repository or automatic update support in this distribution.</li>
+        <li>You operate the server and remain responsible for security, updates, backups, and recovery. No managed service or SLA is included.</li>
+        <li>The package, CLI, services, and installed paths retain the <code>hipanel</code> compatibility names.</li>
+        <li>Snotic Site Exporter is GPL-2.0-or-later. Its PHP fallback requires a quiesced source; it does not claim live-write consistency.</li>
+      </ul>
+      <p>Final-byte integration tests used systemd-enabled LXD system containers on Ubuntu 22.04 and 24.04 amd64, not VMs. They do not establish the condition of your server.</p>
+      <nav class="related" aria-label="Release documentation"><a href="https://docs.snotic.com/self-hosted/0.1.30-rc1/release-notes/">Release notes</a><a href="https://docs.snotic.com/self-hosted/0.1.30-rc1/compatibility/">Known limitations</a><a href="https://docs.snotic.com/self-hosted/0.1.30-rc1/use-terms/">Use terms</a><a href="https://docs.snotic.com/self-hosted/0.1.30-rc1/third-party-notices/">Third-party notices</a></nav>
+    </section>
+  </main>
+  <footer>Snotic is a product developed and operated by Pleesh.</footer>
+</body>
+</html>

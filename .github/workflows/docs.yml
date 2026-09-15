@@ -37,6 +37,10 @@ jobs:
           python scripts/check_public_safety.py .
       - name: Build strict site
         run: mkdocs build --strict --site-dir site
+      - name: Validate separate download page
+        run: |
+          python scripts/build_downloads.py --output /tmp/snotic-download-page
+          python scripts/check_public_safety.py /tmp/snotic-download-page
       - name: Validate generated output
         run: |
           python scripts/check_links.py site

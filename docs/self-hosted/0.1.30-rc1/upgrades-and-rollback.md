@@ -26,7 +26,7 @@ checksums, manifest, compatibility range, and rollback declaration before use.
 sudo apt-get install --yes ./hipanel_0.1.31_amd64.deb
 ```
 
-Do not infer an upgrade path from a filename alone. This Early Access handoff
+Do not infer an upgrade path from a filename alone. This Early Access distribution
 does not configure a public APT repository or automatic stable promotion.
 
 ## Rollback boundary

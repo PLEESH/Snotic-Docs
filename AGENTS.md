@@ -76,7 +76,14 @@ paths. Explain this once per versioned guide. Do not invent a `snotic` command.
 - Keep immutable release documentation below its versioned path.
 - Label Early Access, candidate, beta, and stable status accurately.
 - Do not rewrite commands for an older release after a future alias appears.
-- Build only the allowlisted `docs/` directory.
+- Build Pages only from the allowlisted `docs/` directory.
+- The separate package download page uses only `downloads/` source and
+  `scripts/build_downloads.py`. Its deployment allowlist is `index.html` and
+  `styles.css`, not the repository tree or a Pages artifact. Do not put release
+  binaries in this public repository. DevOps owns its reviewed deployment.
+- Publish documentation links to new downloads only after independent live
+  download verification. A prepared documentation PR is not evidence of a
+  working download service.
 - Scan source and generated output, including the search index.
 - Require navigation, local search, link and anchor checks, command checks,
   strict builds, and independent review.

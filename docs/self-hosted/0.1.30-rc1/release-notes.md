@@ -12,8 +12,11 @@
 | Channel | Candidate |
 | Offering | Snotic Self-Hosted by Pleesh |
 
-This is a privately distributed Early Access candidate for an approved
-recipient's customer-controlled Ubuntu server. It is not Snotic Managed, a
+The unchanged product bundle and required signed companion documents are
+provided together for anonymous [download](obtain-and-verify.md). Eligibility is governed
+by the [approved public-use supplement v1](public-use-supplement-v1.md), effective
+15 September 2026, together with the otherwise unchanged [embedded grant](use-terms.md).
+It is not Snotic Managed, a
 public beta, or a stable-channel promotion. There is no Portal activation,
 payment method, subscription, or seven-day software expiry.
 
@@ -33,8 +36,8 @@ payment method, subscription, or seven-day software expiry.
 
 - Package SHA-256:
   `becfff27cae7e8c8bc9edb2eae629ec873e8a555d83d05d77cf8dee16658aa3e`
-- Owner handoff SHA-256:
-  `2ca1f61225d85d53ac969456deb181e5cb185b7a4d0cb63b6a16843102485456`
+- Product bundle SHA-256:
+  `05bb2729f85cd3f377a4b3b3e0bff19d7905d0b07db21a536572bef6ffd92d08`
 - Signing fingerprint:
   `26BAEB9BC68C2AB633FD6B822473AD1517C2A642`
 
