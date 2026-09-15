@@ -17,15 +17,22 @@
       <p class="summary">WordPress server management on your own Ubuntu server.</p>
       <dl class="facts"><div><dt>Release</dt><dd>0.1.30~rc1</dd></div><div><dt>Ubuntu LTS</dt><dd>22.04 / 24.04</dd></div><div><dt>Architecture</dt><dd>amd64</dd></div></dl>
       <div class="action"><a class="download" href="$archive_url" download="$archive_name">Download product bundle</a><a href="https://docs.snotic.com/self-hosted/0.1.30-rc1/">Installation guide</a></div>
-      <p class="archive-size">$archive_size bytes &middot; Complete signed distribution</p>
+      <p class="archive-size">$archive_size bytes &middot; Signed product distribution</p>
       <p class="permission"><strong>Download availability is not a broader use licence.</strong> Anyone may download these files. The embedded use grant applies to individually authorized recipients. Downloading alone does not grant permission to install, redistribute, or modify the core application. Read the <a href="https://docs.snotic.com/self-hosted/0.1.30-rc1/use-terms/">current use terms</a> before installation.</p>
     </section>
     <section aria-labelledby="files-title">
       <div class="section-title"><h2 id="files-title">Release files</h2><span>$file_count files</span></div>
-      <p>Keep the bundle and its listed companions together. Verify the signatures and checksums before extracting or installing.</p>
+      <p>Keep the bundle and its verification and installation companions together. Verify the signatures and checksums before extracting, running the preflight, or installing.</p>
       <ul class="files">
 $file_rows
       </ul>
+    </section>
+    <section aria-labelledby="contents-title">
+      <h2 id="contents-title">Inside the bundle</h2>
+      <p>The unchanged product bundle includes the Debian package, signed release manifest and checksums, configuration and release schemas, SPDX SBOM, preflight, installation guide, release notes, use grant, and third-party notices.</p>
+      <p>Snotic Site Exporter 0.2.0-pilot.2 is included as a ZIP containing its complete PHP source, GPL-2.0-or-later declaration, licence text, README, and notices. The Debian package includes its bundled third-party notices; system dependencies come from the server's configured Ubuntu sources.</p>
+      <p>Package: <code>$package_name</code></p>
+      <div class="digest"><span>Package SHA-256</span><code>$package_digest</code></div>
     </section>
     <section aria-labelledby="verify-title">
       <h2 id="verify-title">Verify the signing identity</h2>

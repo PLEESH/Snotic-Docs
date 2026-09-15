@@ -2,21 +2,23 @@
 
 > **Version: Snotic Self-Hosted 0.1.30~rc1 | Status: Early Access**
 
-Download the product bundle and its listed verification companions from the
-[Snotic Self-Hosted download page](https://packages.snotic.com/). No login,
-email address, recipient allowlist, or expiring download token is required.
-The page lists the exact size and SHA-256 of every file.
+Download the unchanged product bundle and its verification and installation
+companions from the [Snotic Self-Hosted download page](https://packages.snotic.com/).
+No login, email address, recipient allowlist, or expiring download token is
+required. The page lists the exact size and SHA-256 of each selected file.
 
 !!! warning "Downloading and permission to use are different"
     The embedded [use grant](use-terms.md) still applies to individually
     authorized recipients. Downloading alone does not grant permission to
-    install, redistribute, or modify the core application. A proposed public-use
-    supplement is not effective unless separately approved by Pleesh. The
-    signed archive and its terms have not been changed.
+    install, redistribute, or modify the core application. A proposed separate
+    public-use eligibility supplement is not effective unless approved by
+    Pleesh. The signed bundle and its terms have not been changed.
 
-Obtain these files together:
+## Public file set
 
-- [Complete product bundle](https://packages.snotic.com/self-hosted/0.1.30-rc1/hipanel_0.1.30~rc1_amd64.tar.gz).
+Keep these files together:
+
+- [Signed product bundle](https://packages.snotic.com/self-hosted/0.1.30-rc1/hipanel_0.1.30~rc1_amd64.tar.gz).
 - [Bundle signature](https://packages.snotic.com/self-hosted/0.1.30-rc1/hipanel_0.1.30~rc1_amd64.tar.gz.asc).
 - [Bundle checksum](https://packages.snotic.com/self-hosted/0.1.30-rc1/hipanel_0.1.30~rc1_amd64.tar.gz.sha256).
 - [Checksum signature](https://packages.snotic.com/self-hosted/0.1.30-rc1/hipanel_0.1.30~rc1_amd64.tar.gz.sha256.asc).
@@ -26,45 +28,44 @@ Obtain these files together:
 - [Public keyring signature](https://packages.snotic.com/self-hosted/0.1.30-rc1/hipanel-archive-keyring.gpg.asc).
 - [Installation and recovery guide](https://packages.snotic.com/self-hosted/0.1.30-rc1/INSTALL.txt).
 - [Guide signature](https://packages.snotic.com/self-hosted/0.1.30-rc1/INSTALL.txt.asc).
+- [Read-only server preflight](https://packages.snotic.com/self-hosted/0.1.30-rc1/snotic-self-hosted-preflight.py).
+- [Preflight signature](https://packages.snotic.com/self-hosted/0.1.30-rc1/snotic-self-hosted-preflight.py.asc).
 
-The unchanged product bundle contains the Debian package, its signature,
-read-only preflight, release notes, signed use grant and third-party notices,
-public verification keys, schemas, SBOM and signed checksum inventory. It also
-includes the Snotic Site Exporter ZIP with its PHP corresponding source, GPL
-licence, README and notices. Dependency licences and notices are installed by
-the package. See [third-party notices](third-party-notices.md).
-
-Filenames retain the released `hipanel` compatibility names. Historical source
-and schema provenance in signed metadata does not provide anonymous repository
-access; use only the public download links above. This is Early Access, not a
-stable release or a public APT repository. No application rebuild or new wrapper
-was needed to provide this product distribution.
-
-The expected product bundle SHA-256 is:
+The public product bundle is `hipanel_0.1.30~rc1_amd64.tar.gz`, SHA-256:
 
 ```text
 05bb2729f85cd3f377a4b3b3e0bff19d7905d0b07db21a536572bef6ffd92d08
 ```
 
-The expected Debian package SHA-256 inside the verified release is:
+It contains `hipanel_0.1.30~rc1_amd64.deb`, SHA-256:
 
 ```text
 becfff27cae7e8c8bc9edb2eae629ec873e8a555d83d05d77cf8dee16658aa3e
 ```
 
+Filenames and commands retain their released `hipanel` compatibility identifiers,
+including the `~` in the bundle and package versions. Do not rename the files.
+Historical source-repository identifiers in provenance are not public download
+instructions and do not require repository access to install the binary release.
+This is Early Access, not a stable release or a public APT repository.
+
 ## Confirm the signing identity
 
-Use a trusted machine with GnuPG to verify the bundle before executing its
-contents. If the destination server does not already have verification tools,
-perform these checks on a trusted Ubuntu workstation first, then transfer the
-verified files securely. Do not skip the destination's read-only preflight
-before package installation. On the verification workstation, missing tools
-can be installed from its configured Ubuntu repositories:
+Verification requires `gpg`, `gpgv`, and `sha256sum`. Use a trusted machine
+with these tools to verify the bundle before executing its contents. If the
+destination server lacks verification tools, verify on a trusted Ubuntu
+workstation first, then transfer the verified files securely. On that
+workstation, missing tools can be installed from its trusted Ubuntu repositories:
 
 ```shell
 sudo apt-get update
 sudo apt-get install --yes gnupg gpgv ca-certificates
 ```
+
+These commands install verification tools on the workstation, not Snotic on
+the destination. Do not execute an unverified preflight or install the
+application before verification. The destination's verified read-only preflight
+must pass before package installation or changing its server stack.
 
 Display the supplied public key fingerprint:
 
@@ -79,31 +80,30 @@ authorized fingerprint is:
 26BAEB9BC68C2AB633FD6B822473AD1517C2A642
 ```
 
-## Verify the product bundle
+## Verify the bundle and companions
 
-Run all three checks from the directory containing the supplied files:
+Run the checks from the directory containing the downloaded files:
 
 ```shell
 BUNDLE=hipanel_0.1.30~rc1_amd64.tar.gz
 gpgv --keyring ./hipanel-archive-keyring.gpg "${BUNDLE}.sha256.asc" "${BUNDLE}.sha256"
 sha256sum --check "${BUNDLE}.sha256"
 gpgv --keyring ./hipanel-archive-keyring.gpg "${BUNDLE}.asc" "${BUNDLE}"
-```
-
-Also verify the public-key companions and supplied guide before following it:
-
-```shell
 gpgv --keyring ./hipanel-archive-keyring.gpg hipanel-archive-key.asc.asc hipanel-archive-key.asc
 gpgv --keyring ./hipanel-archive-keyring.gpg hipanel-archive-keyring.gpg.asc hipanel-archive-keyring.gpg
 gpgv --keyring ./hipanel-archive-keyring.gpg INSTALL.txt.asc INSTALL.txt
+gpgv --keyring ./hipanel-archive-keyring.gpg snotic-self-hosted-preflight.py.asc snotic-self-hosted-preflight.py
 ```
 
 !!! danger
-    Stop if the fingerprint, a signature, or a checksum differs. Do not install
-    a partially verified distribution and do not replace a failed file from an
-    untrusted source.
+    Stop if the fingerprint, a signature, or a checksum differs. Do not run the
+    preflight, extract, or install a partially verified bundle. Do not replace
+    a failed file from an untrusted source.
 
-## Extract and verify the inner release
+## Extract and verify the product files
+
+Use a new empty extraction directory. The product files are directly at the
+bundle root; no second wrapper archive needs to be extracted.
 
 ```shell
 mkdir verified-release
@@ -113,9 +113,21 @@ gpgv --keyring ./hipanel-archive-keyring.gpg SHA256SUMS.asc SHA256SUMS
 sha256sum --check SHA256SUMS
 ```
 
-The signed inventory must pass for every listed artifact. The package to install
-is `hipanel_0.1.30~rc1_amd64.deb` in `verified-release`.
+The signed inventory must pass for every listed artifact. Then follow the
+[preflight and installation procedure](install.md). The package to install is
+`hipanel_0.1.30~rc1_amd64.deb` in `verified-release`. No Pleesh AWS or GitHub
+credentials are required, and local encrypted backup and restore do not require S3.
 
-Proceed to the [read-only preflight and installation steps](install.md). No
-Pleesh AWS or GitHub credentials are required, and local encrypted backup and
-restore do not require S3.
+## Included material
+
+The verified bundle includes the release manifest, schemas, SPDX SBOM,
+installation guide, preflight, release notes, unchanged use grant, third-party
+notices, public keys, checksums, and detached signatures.
+
+It also includes `snotic-site-exporter_0.2.0-pilot.2.zip`, the complete plugin
+PHP source form with its GPL-2.0-or-later declaration, full GPL v2 text,
+README, and notices. The Debian package carries the bundled WP-CLI, htmx, and
+Go dependency notice material described in [third-party notices](third-party-notices.md),
+including the recorded WP-CLI notice-coverage limitation.
+Ubuntu system dependencies and subsequently downloaded WordPress code are not
+bundled in the application package.

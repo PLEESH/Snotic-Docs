@@ -12,8 +12,7 @@
 | Channel | Candidate |
 | Offering | Snotic Self-Hosted by Pleesh |
 
-This Early Access candidate was originally supplied through an approved
-recipient handoff. The unchanged files are now available for anonymous
+The unchanged product bundle and its selected companions are available for anonymous
 [download](obtain-and-verify.md); installation/use eligibility remains governed
 by the [embedded grant](use-terms.md) unless separately supplemented by Pleesh.
 It is not Snotic Managed, a

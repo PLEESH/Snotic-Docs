@@ -23,8 +23,22 @@ The package includes the official WP-CLI `2.12.0` PHAR at
 The reviewed upstream source is the `wp-cli/wp-cli-bundle` `v2.12.0` tag at
 commit `d639a3dab65f4b935b21c61ea3662bf3258a03a5`. Its production Composer lock
 contains 54 packages: 53 declare MIT and one (`mck89/peast`) declares
-BSD-3-Clause. The PHAR also contains the MIT-licensed bundle root, for 55
-audited components in total.
+BSD-3-Clause. The supplied notice inventory also includes the MIT-licensed
+bundle root, for 55 recorded components. This source-lock inventory is not
+complete for the actual PHAR payload.
+
+The PHAR additionally contains `psr/container` `1.0.0` (three PHP interface
+files) and `wp-cli/wp-cli-tests` `v4.3.14` (eleven files). Neither is recorded in
+the supplied inventory. The pinned upstream
+[psr/container licence](https://github.com/php-fig/container/blob/b7ce3b176482dbbc1245ebf52b181af44c2cf55f/LICENSE)
+has copyright notices absent from the supplied material. The pinned
+[WP-CLI tests licence](https://github.com/wp-cli/wp-cli-tests/blob/b72c36dd0ebd70547c441f03c9257c3e857af4be/LICENSE)
+has equivalent MIT notice text elsewhere in the package, but its component
+inventory entry is missing. These links document the discrepancy; they do not
+repair or replace the unchanged signed package notices.
+
+Anonymous publication remains on hold until this notice coverage is resolved.
+The package, bundle, embedded grant, and their signatures have not changed.
 
 The exact component versions, source commits, declared licences, and copied
 upstream notice files are installed under

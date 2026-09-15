@@ -46,13 +46,11 @@ builds are eligible for GitHub Pages deployment.
 
 ## Separate download page
 
-`downloads/rc1.json` is the single reviewed public inventory for both page
-generation and distribution scope. It pins filenames, sizes, SHA-256 values,
-MIME types and the unchanged product bundle/package identity. Infrastructure
-consumes this exact file from a pinned commit and verifies its SHA-256; do not
-maintain a separately authored infrastructure inventory. File counts and totals
-are derived from the inventory, not assumed. Private handoff/custody artifacts
-are rejected by validation and are never download candidates.
+`downloads/rc1.json` is the canonical reviewed public artifact inventory. It pins
+filenames, sizes, SHA-256 values, content types, and the bundle/package identity.
+Both this page and the infrastructure object scope consume that inventory;
+DevOps pins an identical copy to a reviewed source commit and verifies its digest.
+Do not maintain a separately authored infrastructure inventory.
 The builder produces only `index.html` and `styles.css` in a new or empty output
 directory. `--verify-assets ASSET_DIRECTORY` additionally checks the selected local
 release files without copying or changing them. Never commit those files here.
@@ -63,8 +61,18 @@ URLs include `/self-hosted/0.1.30-rc1/`. Only `/` uses a default-root object;
 no S3 website-style version-directory indexing is assumed. No page JavaScript,
 forms, authentication, analytics, external fonts, or viewer tokens are used.
 
-Keep this change in draft until the selected product distribution passes its public-content
+Keep this change in draft until the selected public set passes its public-content
 gate, the infrastructure execution plan is approved, and independent anonymous
 GET/checksum/signature and browser verification succeeds. Only then merge the
 documentation download-link change and verify Pages again. Page output is
 separate from the `site` directory and never expands the Pages allowlist.
+
+The public set reuses the existing signed product bundle. The private owner
+archive and custody records are never deployment inputs; they remain unchanged.
+File counts and download-size totals are derived from the reviewed inventory.
+
+The selected product bundle passed focused private-content and signature
+screening, but its WP-CLI notice coverage is incomplete. The versioned
+third-party-notices page records the two omitted components. Do not interpret
+passing page tests as release-completeness or publication approval. Resolve
+that coverage separately without altering frozen RC1 assets before exposure.
