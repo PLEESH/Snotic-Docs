@@ -1,6 +1,8 @@
 import copy
 import importlib.util
 import json
+import subprocess
+import sys
 import tempfile
 import unittest
 from html.parser import HTMLParser
@@ -81,6 +83,39 @@ class DownloadTests(unittest.TestCase):
         self.assertIn("not a stable release", html)
         self.assertNotIn("$", html)
         self.assertEqual(build.render(self.data), html)
+
+    def test_all_ten_immutable_size_and_digest_pairs(self):
+        for index, item in enumerate(self.data["files"]):
+            for field in ("size", "sha256"):
+                with self.subTest(file=item["name"], field=field):
+                    data = copy.deepcopy(self.data)
+                    data["files"][index][field] = item["size"] + 1 if field == "size" else "0" * 64
+                    with self.assertRaisesRegex(ValueError, "immutable"):
+                        self.load(data)
+
+    def test_cli_only_builds_two_assets_and_rejects_stale_output(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            output = Path(tmp) / "page"
+            cmd = [sys.executable, str(ROOT / "scripts/build_downloads.py"), "--output", str(output)]
+            result = subprocess.run(cmd, capture_output=True, text=True)
+            self.assertEqual(result.returncode, 0, result.stderr)
+            self.assertEqual({p.name for p in output.iterdir()}, {"index.html", "styles.css"})
+            self.assertEqual((output / "index.html").read_text(), build.render(self.data))
+            self.assertEqual((output / "styles.css").read_bytes(), (ROOT / "downloads/styles.css").read_bytes())
+            self.assertIn('href="/styles.css"', (output / "index.html").read_text())
+            result = subprocess.run(cmd, capture_output=True, text=True)
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn("output must be empty", result.stderr)
+
+    def test_documentation_direct_downloads_match_inventory(self):
+        import re
+        text = (ROOT / "docs/self-hosted/0.1.30-rc1/obtain-and-verify.md").read_text()
+        urls = re.findall(r"\]\((https://packages\.snotic\.com/self-hosted/[^)]+)\)", text)
+        self.assertEqual(len(urls), 10)
+        self.assertEqual(set(urls), {
+            "https://packages.snotic.com" + self.data["path"] + item["name"]
+            for item in self.data["files"]
+        })
 
     def test_label_is_escaped(self):
         self.data["files"][0]["label"] = '<img src="x" onerror="alert(1)">'

@@ -22,6 +22,8 @@ EXPECTED = {
 }
 FINGERPRINT = "26BAEB9BC68C2AB633FD6B822473AD1517C2A642"
 ARCHIVE_DIGEST = "2ca1f61225d85d53ac969456deb181e5cb185b7a4d0cb63b6a16843102485456"
+# Pins all ten approved (filename, size, SHA-256) tuples without a second table.
+INVENTORY_DIGEST = "ea3904c24d709e0c6e4fe555b44733e52864d335ccd576c9cb57373ad9e254c8"
 
 
 def load_inventory(path: Path) -> dict:
@@ -44,6 +46,10 @@ def load_inventory(path: Path) -> dict:
             49230129, ARCHIVE_DIGEST
         ):
             raise ValueError("immutable archive identity differs")
+    identities = sorted((f["name"], f["size"], f["sha256"]) for f in files)
+    encoded = json.dumps(identities, separators=(",", ":")).encode("ascii")
+    if hashlib.sha256(encoded).hexdigest() != INVENTORY_DIGEST:
+        raise ValueError("immutable ten-file inventory differs")
     return data
 
 
