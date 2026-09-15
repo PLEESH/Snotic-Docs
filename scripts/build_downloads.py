@@ -18,13 +18,22 @@ FINGERPRINT = "26BAEB9BC68C2AB633FD6B822473AD1517C2A642"
 ARCHIVE_DIGEST = "05bb2729f85cd3f377a4b3b3e0bff19d7905d0b07db21a536572bef6ffd92d08"
 PACKAGE = {"name": "hipanel_0.1.30~rc1_amd64.deb", "size": 12257444,
            "sha256": "becfff27cae7e8c8bc9edb2eae629ec873e8a555d83d05d77cf8dee16658aa3e"}
-# Pins all approved (filename, size, SHA-256, MIME type) tuples, not a file count.
-INVENTORY_DIGEST = "d6ba8d234222edfb7ad1176e3c4d62b62a9324777f1c40dda025cc37691ec1e6"
+# Pins download and page identities from the single reviewed inventory.
+INVENTORY_DIGEST = "d02ebe4eeda068dc6a5854b823e027adbd7a7a0a8e8d5f94cb077a6f3059780b"
 PRIVATE_NAME = re.compile(r"owner[-_]handoff|custody|recipient|authorization|immutable-release-assets", re.I)
 
 
+def unique_object(pairs):
+    result = {}
+    for key, value in pairs:
+        if key in result:
+            raise ValueError("duplicate JSON key")
+        result[key] = value
+    return result
+
+
 def load_inventory(path: Path) -> dict:
-    data = json.loads(path.read_text(encoding="utf-8"))
+    data = json.loads(path.read_text(encoding="utf-8"), object_pairs_hook=unique_object)
     if (data["version"], data["status"], data["path"], data["fingerprint"]) != (
         "0.1.30~rc1", "Early Access", "/self-hosted/0.1.30-rc1/", FINGERPRINT
     ):
@@ -45,6 +54,8 @@ def load_inventory(path: Path) -> dict:
             raise ValueError("invalid SHA-256")
         if not isinstance(item["label"], str) or not item["label"].strip():
             raise ValueError("missing file label")
+        if item["object_key"] != "public" + data["path"] + item["name"]:
+            raise ValueError("unexpected download object key")
         if item["content_type"] not in {
             "application/gzip", "application/pgp-signature", "application/pgp-keys",
             "text/plain; charset=utf-8", "text/x-python; charset=utf-8",
@@ -54,15 +65,33 @@ def load_inventory(path: Path) -> dict:
             12344056, ARCHIVE_DIGEST
         ):
             raise ValueError("immutable archive identity differs")
-    identities = sorted((f["name"], f["size"], f["sha256"], f["content_type"]) for f in files)
+    pages = data["page_assets"]
+    if len(pages) != 2 or {p["name"] for p in pages} != {"index.html", "styles.css"}:
+        raise ValueError("unexpected page inventory")
+    for item in pages:
+        expected_type = {"index.html": "text/html; charset=utf-8", "styles.css": "text/css; charset=utf-8"}[item["name"]]
+        if item["object_key"] != "public/" + item["name"] or item["content_type"] != expected_type:
+            raise ValueError("unexpected page object key or content type")
+        if type(item["size"]) is not int or item["size"] <= 0 or not re.fullmatch(r"[a-f0-9]{64}", item["sha256"]):
+            raise ValueError("invalid page identity")
+    if len({f["object_key"] for f in files + pages}) != len(files + pages):
+        raise ValueError("duplicate object key")
+    identities = identity_tuples(data)
     encoded = json.dumps(identities, separators=(",", ":")).encode("ascii")
     if hashlib.sha256(encoded).hexdigest() != INVENTORY_DIGEST:
         raise ValueError("immutable publication inventory differs")
     return data
 
 
+def identity_tuples(data: dict) -> list:
+    return sorted((f["name"], f["size"], f["sha256"], f["content_type"], f["object_key"])
+                  for f in data["files"] + data["page_assets"])
+
+
 def verify_assets(data: dict, source: Path) -> None:
-    """Read only the reviewed file allowlist from a local verified asset set."""
+    """Require the complete delivery set, with no stale or unreviewed files."""
+    if {p.name for p in source.iterdir()} != {f["name"] for f in data["files"]}:
+        raise ValueError("missing or extra delivery asset")
     for item in data["files"]:
         path = source / item["name"]
         if path.is_symlink() or not path.is_file():
@@ -111,6 +140,7 @@ def main() -> None:
     args.output.mkdir(parents=True, exist_ok=True)
     (args.output / "index.html").write_text(render(data), encoding="utf-8", newline="\n")
     (args.output / "styles.css").write_bytes((ROOT / "downloads/styles.css").read_bytes())
+    verify_assets({"files": data["page_assets"]}, args.output)
     print("Built index.html and styles.css; no release assets copied or changed")
 
 

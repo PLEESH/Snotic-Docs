@@ -37,8 +37,32 @@ has equivalent MIT notice text elsewhere in the package, but its component
 inventory entry is missing. These links document the discrepancy; they do not
 repair or replace the unchanged signed package notices.
 
-Anonymous publication remains on hold until this notice coverage is resolved.
-The package, bundle, embedded grant, and their signatures have not changed.
+## Required RC1 Notice Addendum v1
+
+Retain `Snotic-Self-Hosted-0.1.30-rc1-THIRD-PARTY-NOTICE-ADDENDUM-v1.txt`
+and its signature and checksum files with the software. It supplies the exact
+missing upstream notices and a corrected inventory checked against every member
+of the shipped PHAR, including support/test and generated loader files. This
+is required distribution material, not a substitute URL or optional reading.
+The [complete download and verification procedure](obtain-and-verify.md) includes
+it and fails when it or its verification material is missing.
+
+The full member review also identifies Requests 2.0.12 nested inside WP-CLI,
+including its ISC notice, the ComplexPie IRI parser's BSD-3-Clause notice and
+Mozilla CA certificate data under MPL-2.0. The addendum includes their complete
+applicable upstream texts and exact source references, separately identifies
+the nested payloads, and corrects the bootstrap attribution to the bundle
+project. A top-level Composer dependency list alone does not cover these files.
+It also includes the complete matching Zend BSD notice for the `glob_brace()`
+adaptation, scoped to that fragment rather than all of WP-CLI's `utils.php`.
+The original copied Zend revision is unspecified; the pinned notice reference
+is not represented as proof of that revision. Retained source-level credits are
+listed distinctly from the directory-level component inventory.
+
+The addendum is bound to the original bundle and package SHA-256 values. It
+does not change the package, bundle, embedded grant or existing signatures.
+Third-party licence rights are unaffected by the core application terms or
+the [public-use eligibility supplement](public-use-supplement-v1.md).
 
 The exact component versions, source commits, declared licences, and copied
 upstream notice files are installed under

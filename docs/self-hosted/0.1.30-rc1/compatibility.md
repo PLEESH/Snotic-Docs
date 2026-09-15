@@ -42,8 +42,8 @@ independent host snapshot before package changes.
 
 ## Early Access limits
 
-- Anonymous downloading is approved; the complete public distribution is still
-  being prepared. The [approved public-use supplement v1](public-use-supplement-v1.md)
+- Anonymous downloading includes required signed companion documents.
+  The [approved public-use supplement v1](public-use-supplement-v1.md)
   makes downloaders from a Pleesh-authorized public download eligible recipients.
   All other [embedded terms](use-terms.md) remain unchanged, including one
   instance on one server per recipient.

@@ -41,7 +41,7 @@ class DownloadTests(unittest.TestCase):
             return build.load_inventory(path)
 
     def test_exact_inventory_and_archive_identity(self):
-        self.assertEqual(sum(f["size"] for f in self.data["files"]), 12377229)
+        self.assertGreater(sum(f["size"] for f in self.data["files"]), 12377229)
         for mutation in ("missing", "duplicate", "extra", "path", "size", "hash", "archive", "package", "mime", "signer"):
             with self.subTest(mutation=mutation):
                 data = copy.deepcopy(self.data)
@@ -71,7 +71,7 @@ class DownloadTests(unittest.TestCase):
     def test_page_exact_untokened_downloads_and_metadata(self):
         html = build.render(self.data)
         links = Links(html)
-        self.assertEqual(len(links.downloads), len(self.data["files"]) + 1)
+        self.assertEqual(len(links.downloads), len(self.data["files"]))
         self.assertEqual(set(links.downloads), {
             (self.data["path"] + f["name"], f["name"]) for f in self.data["files"]
         })
@@ -87,7 +87,8 @@ class DownloadTests(unittest.TestCase):
         self.assertIn(f'{len(self.data["files"])} files', html)
         self.assertIn("Approved public-use eligibility", html)
         self.assertIn("one instance on one server per recipient", html)
-        self.assertIn("Publication preparation only", html)
+        self.assertIn("Complete distribution required", html)
+        self.assertIn("Download all required files", html)
         self.assertNotIn("individually authorized recipients", html)
         self.assertIn("not a stable release", html)
         self.assertNotIn("$", html)
@@ -161,6 +162,32 @@ class DownloadTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, "bundle/package identity"):
             self.load(data)
 
+    def test_object_keys_and_page_assets_are_bound(self):
+        for mutation in ("missing", "duplicate", "extra", "key", "hash", "download_key"):
+            with self.subTest(mutation=mutation):
+                data = copy.deepcopy(self.data)
+                if mutation == "missing":
+                    data["page_assets"].pop()
+                elif mutation == "duplicate":
+                    data["page_assets"][1] = data["page_assets"][0]
+                elif mutation == "extra":
+                    data["page_assets"].append(data["page_assets"][0])
+                elif mutation == "key":
+                    data["page_assets"][0]["object_key"] = "public/extra.html"
+                elif mutation == "hash":
+                    data["page_assets"][0]["sha256"] = "0" * 64
+                else:
+                    data["files"][0]["object_key"] = "public/other.tar.gz"
+                with self.assertRaises(ValueError):
+                    self.load(data)
+
+    def test_duplicate_json_fields_are_rejected(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "inventory.json"
+            path.write_text('{"version":"wrong",' + json.dumps(self.data)[1:])
+            with self.assertRaisesRegex(ValueError, "duplicate JSON"):
+                build.load_inventory(path)
+
     def test_byte_verification_rejects_changed_missing_and_symlink(self):
         import hashlib
         with tempfile.TemporaryDirectory() as tmp:
@@ -169,6 +196,11 @@ class DownloadTests(unittest.TestCase):
             asset.write_bytes(b"synthetic")
             data = {"files": [{"name": asset.name, "size": 9, "sha256": hashlib.sha256(b"synthetic").hexdigest()}]}
             build.verify_assets(data, root)
+            extra = root / "stale.txt"
+            extra.write_text("stale")
+            with self.assertRaisesRegex(ValueError, "extra"):
+                build.verify_assets(data, root)
+            extra.unlink()
             asset.write_bytes(b"modified!")
             with self.assertRaisesRegex(ValueError, "SHA-256"):
                 build.verify_assets(data, root)

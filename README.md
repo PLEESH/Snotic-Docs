@@ -6,8 +6,8 @@ product developed and operated by Pleesh. The published site is
 
 The first versioned documentation set covers Snotic Self-Hosted
 `0.1.30~rc1` at `/self-hosted/0.1.30-rc1/`. This is an Early Access release,
-not a stable release. Public download availability does not broaden the
-embedded installation/use licence.
+not a stable release. The approved versioned public-use supplement changes
+recipient eligibility only; all other embedded terms remain unchanged.
 
 ## Authority boundary
 
@@ -47,7 +47,8 @@ builds are eligible for GitHub Pages deployment.
 ## Separate download page
 
 `downloads/rc1.json` is the canonical reviewed public artifact inventory. It pins
-filenames, sizes, SHA-256 values, content types, and the bundle/package identity.
+filenames, object keys, sizes, SHA-256 values, content types, page assets, and
+the bundle/package identity. Required companion documents are in the same inventory.
 Both this page and the infrastructure object scope consume that inventory;
 DevOps pins an identical copy to a reviewed source commit and verifies its digest.
 Do not maintain a separately authored infrastructure inventory.
@@ -71,8 +72,9 @@ The public set reuses the existing signed product bundle. The private owner
 archive and custody records are never deployment inputs; they remain unchanged.
 File counts and download-size totals are derived from the reviewed inventory.
 
-The selected product bundle passed focused private-content and signature
-screening, but its WP-CLI notice coverage is incomplete. The versioned
-third-party-notices page records the two omitted components. Do not interpret
-passing page tests as release-completeness or publication approval. Resolve
-that coverage separately without altering frozen RC1 assets before exposure.
+The frozen bundle's WP-CLI notice omissions are addressed by the separately
+versioned notice addendum. Its full shipped-member coverage and mandatory
+delivery alongside the software need independent acceptance. Passing page tests
+alone is neither notice-completeness acceptance nor publication approval.
+The new public-use supplement preserves the approved substantive wording and
+exact release binding. Neither document changes frozen RC1 assets.

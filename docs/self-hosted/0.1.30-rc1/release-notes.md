@@ -12,8 +12,8 @@
 | Channel | Candidate |
 | Offering | Snotic Self-Hosted by Pleesh |
 
-The unchanged product bundle and required signed companion documents are being
-prepared for anonymous [download](obtain-and-verify.md). Eligibility is governed
+The unchanged product bundle and required signed companion documents are
+provided together for anonymous [download](obtain-and-verify.md). Eligibility is governed
 by the [approved public-use supplement v1](public-use-supplement-v1.md), effective
 15 September 2026, together with the otherwise unchanged [embedded grant](use-terms.md).
 It is not Snotic Managed, a

@@ -52,8 +52,8 @@ or any other release.
 
 The separately versioned offline copy is named
 `Snotic-Self-Hosted-0.1.30-rc1-PUBLIC-USE-SUPPLEMENT-v1.txt`.
-Its approved-signing-process signature and final inventory are being prepared;
-no downloadable signed copy is claimed yet. The complete public set must
+It is a byte-identical copy of the finalized supplement, signed separately
+without changing the embedded grant. The complete public set must
 include this document, its verification files, the required third-party notice
 addendum and the software together. Follow [obtain and verify](obtain-and-verify.md)
 and retain the documents alongside the [original grant](use-terms.md).

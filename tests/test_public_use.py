@@ -45,7 +45,7 @@ class ApprovedPublicUseTests(unittest.TestCase):
         self.assertIn("required,", text)
         self.assertIn("not optional links", text)
         self.assertIn("together for offline use", text)
-        self.assertIn("Do not install or hand off this partial selection", text)
+        self.assertIn("Do not install or hand off a partial selection", text)
 
 
 if __name__ == "__main__":

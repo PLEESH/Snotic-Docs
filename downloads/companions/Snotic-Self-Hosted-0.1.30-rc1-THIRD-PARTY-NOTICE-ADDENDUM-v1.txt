@@ -1,0 +1,1945 @@
+Snotic Self-Hosted RC1 Third-Party Notice Addendum
+Document version: 1
+Issued: 2026-09-15
+Provider: Pleesh
+Product/release: Snotic Self-Hosted 0.1.30~rc1 (Early Access)
+
+Required companion: retain and provide this file together with the software,
+its original notices, the approved public-use supplement, and verification files.
+This is a separately identified notice correction, not a replacement for or
+an alteration of any notice, signature, bundle, or package in the frozen release.
+
+Exact software identity
+=======================
+Bundle: hipanel_0.1.30~rc1_amd64.tar.gz
+Bundle SHA-256: 05bb2729f85cd3f377a4b3b3e0bff19d7905d0b07db21a536572bef6ffd92d08
+Package: hipanel_0.1.30~rc1_amd64.deb
+Package SHA-256: becfff27cae7e8c8bc9edb2eae629ec873e8a555d83d05d77cf8dee16658aa3e
+Bundled WP-CLI: 2.12.0, /opt/hipanel/bin/wp
+WP-CLI PHAR SHA-256: ce34ddd838f7351d6759068d09793f26755463b4a4610a5a5c0a97b68220d85c
+
+Correction and third-party rights
+=================================
+The original WP-CLI notice inventory omitted psr/container 1.0.0 and
+wp-cli/wp-cli-tests v4.3.14 even though their files are shipped in the PHAR.
+The psr/container copyright notices were absent. The WP-CLI tests MIT notice
+text appears in other supplied WP-CLI notices, but its inventory entry was
+omitted. The exact upstream notices for both components are reproduced below.
+The full member review also identifies nested Requests 2.0.12, its ComplexPie
+IRI parser, and Mozilla CA certificate data within wp-cli/wp-cli. Their distinct
+notices and licence terms are included here; the container's MIT notice alone
+does not cover these nested components. Bootstrap attribution is corrected
+to the wp-cli/wp-cli-bundle project, whose unchanged notice is already shipped.
+Upstream licence rights remain unaffected by the core Snotic use terms.
+This addendum grants no additional rights in the proprietary core application.
+
+psr/container
+=============
+Shipped version: 1.0.0
+Upstream source commit: b7ce3b176482dbbc1245ebf52b181af44c2cf55f
+Exact licence source: https://raw.githubusercontent.com/php-fig/container/b7ce3b176482dbbc1245ebf52b181af44c2cf55f/LICENSE
+Licence-file SHA-256: 0688ee39285c33067ad77d82349cdacb5569756bea4398b34bb223af9e57f1c0
+Shipped PHAR members: 3
+
+BEGIN EXACT UPSTREAM LICENCE
+The MIT License (MIT)
+
+Copyright (c) 2013-2016 container-interop
+Copyright (c) 2016 PHP Framework Interoperability Group
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of
+this software and associated documentation files (the "Software"), to deal in
+the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
+the Software, and to permit persons to whom the Software is furnished to do so,
+subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+END EXACT UPSTREAM LICENCE
+
+wp-cli/wp-cli-tests
+===================
+Shipped version: v4.3.14
+Upstream source commit: b72c36dd0ebd70547c441f03c9257c3e857af4be
+Exact licence source: https://raw.githubusercontent.com/wp-cli/wp-cli-tests/b72c36dd0ebd70547c441f03c9257c3e857af4be/LICENSE
+Licence-file SHA-256: 7b1e7b898618c53feba37b239e6d1c7de1882f0a6228c92c4800bfe9e58149e6
+Shipped PHAR members: 11
+
+BEGIN EXACT UPSTREAM LICENCE
+The MIT License (MIT)
+
+Copyright (C) 2011-2018 WP-CLI Development Group (https://github.com/wp-cli/wp-cli/contributors)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+END EXACT UPSTREAM LICENCE
+
+Nested Requests and ComplexPie IRI Parser
+========================================
+Requests version: 2.0.12 (VERSION in the actual shipped src/Requests.php).
+Source container: wp-cli/wp-cli commit 03d30d4138d12b4bffd8b507b82e56e129e0523f.
+All 67 nested payload files match that pinned source byte-for-byte: 66 PHP
+files and one CA data file. The IRI parser is included within those PHP files.
+Exact combined upstream licence source: https://raw.githubusercontent.com/wp-cli/wp-cli/03d30d4138d12b4bffd8b507b82e56e129e0523f/bundle/rmccue/requests/LICENSE
+Licence-file SHA-256: c08c66f8037c23f20614b58c0cbab6bbacef833dfa9c6a3a00ad3dc3344c2040
+
+BEGIN EXACT UPSTREAM LICENCE
+Requests
+========
+
+Copyright (c) 2010-2012 Ryan McCue and contributors
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+
+ComplexPie IRI Parser
+=====================
+
+Copyright (c) 2007-2010, Geoffrey Sneddon and Steve Minutillo.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+ * Redistributions of source code must retain the above copyright notice,
+      this list of conditions and the following disclaimer.
+
+ * Redistributions in binary form must reproduce the above copyright notice,
+      this list of conditions and the following disclaimer in the documentation
+      and/or other materials provided with the distribution.
+
+ * Neither the name of the SimplePie Team nor the names of its contributors
+      may be used to endorse or promote products derived from this software
+      without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDERS AND CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+END EXACT UPSTREAM LICENCE
+
+Mozilla CA certificate data
+===========================
+The unchanged shipped certificates/cacert.pem is Mozilla CA data dated
+2024-07-02, converted with mk-ca-bundle.pl 1.29, under MPL-2.0.
+CA file SHA-256: 1bf458412568e134a4514f5e170a328d11091e071c7110955c9884ed87972ac9.
+PHAR member: vendor/wp-cli/wp-cli/bundle/rmccue/requests/certificates/cacert.pem
+The covered CA data remains available in its supplied textual PEM form in
+that member, including its original Mozilla source and conversion notices.
+Exact corresponding upstream copy:
+https://raw.githubusercontent.com/wp-cli/wp-cli/03d30d4138d12b4bffd8b507b82e56e129e0523f/bundle/rmccue/requests/certificates/cacert.pem
+Upstream CA licence declaration: https://curl.se/docs/caextract.html
+Full Mozilla Public License 2.0 source: https://www.mozilla.org/media/MPL/2.0/index.txt
+Licence-file SHA-256: 3f3d9e0024b1921b067d6f7f88deb4a60cbe7a78e76c64e3f1d7fc3b779b9d04
+The source-form CA data is governed by MPL-2.0. Its rights are not limited
+by Snotic's proprietary core terms. The complete licence is provided below.
+
+BEGIN EXACT UPSTREAM LICENCE
+Mozilla Public License Version 2.0
+==================================
+
+1. Definitions
+--------------
+
+1.1. "Contributor"
+    means each individual or legal entity that creates, contributes to
+    the creation of, or owns Covered Software.
+
+1.2. "Contributor Version"
+    means the combination of the Contributions of others (if any) used
+    by a Contributor and that particular Contributor's Contribution.
+
+1.3. "Contribution"
+    means Covered Software of a particular Contributor.
+
+1.4. "Covered Software"
+    means Source Code Form to which the initial Contributor has attached
+    the notice in Exhibit A, the Executable Form of such Source Code
+    Form, and Modifications of such Source Code Form, in each case
+    including portions thereof.
+
+1.5. "Incompatible With Secondary Licenses"
+    means
+
+    (a) that the initial Contributor has attached the notice described
+        in Exhibit B to the Covered Software; or
+
+    (b) that the Covered Software was made available under the terms of
+        version 1.1 or earlier of the License, but not also under the
+        terms of a Secondary License.
+
+1.6. "Executable Form"
+    means any form of the work other than Source Code Form.
+
+1.7. "Larger Work"
+    means a work that combines Covered Software with other material, in
+    a separate file or files, that is not Covered Software.
+
+1.8. "License"
+    means this document.
+
+1.9. "Licensable"
+    means having the right to grant, to the maximum extent possible,
+    whether at the time of the initial grant or subsequently, any and
+    all of the rights conveyed by this License.
+
+1.10. "Modifications"
+    means any of the following:
+
+    (a) any file in Source Code Form that results from an addition to,
+        deletion from, or modification of the contents of Covered
+        Software; or
+
+    (b) any new file in Source Code Form that contains any Covered
+        Software.
+
+1.11. "Patent Claims" of a Contributor
+    means any patent claim(s), including without limitation, method,
+    process, and apparatus claims, in any patent Licensable by such
+    Contributor that would be infringed, but for the grant of the
+    License, by the making, using, selling, offering for sale, having
+    made, import, or transfer of either its Contributions or its
+    Contributor Version.
+
+1.12. "Secondary License"
+    means either the GNU General Public License, Version 2.0, the GNU
+    Lesser General Public License, Version 2.1, the GNU Affero General
+    Public License, Version 3.0, or any later versions of those
+    licenses.
+
+1.13. "Source Code Form"
+    means the form of the work preferred for making modifications.
+
+1.14. "You" (or "Your")
+    means an individual or a legal entity exercising rights under this
+    License. For legal entities, "You" includes any entity that
+    controls, is controlled by, or is under common control with You. For
+    purposes of this definition, "control" means (a) the power, direct
+    or indirect, to cause the direction or management of such entity,
+    whether by contract or otherwise, or (b) ownership of more than
+    fifty percent (50%) of the outstanding shares or beneficial
+    ownership of such entity.
+
+2. License Grants and Conditions
+--------------------------------
+
+2.1. Grants
+
+Each Contributor hereby grants You a world-wide, royalty-free,
+non-exclusive license:
+
+(a) under intellectual property rights (other than patent or trademark)
+    Licensable by such Contributor to use, reproduce, make available,
+    modify, display, perform, distribute, and otherwise exploit its
+    Contributions, either on an unmodified basis, with Modifications, or
+    as part of a Larger Work; and
+
+(b) under Patent Claims of such Contributor to make, use, sell, offer
+    for sale, have made, import, and otherwise transfer either its
+    Contributions or its Contributor Version.
+
+2.2. Effective Date
+
+The licenses granted in Section 2.1 with respect to any Contribution
+become effective for each Contribution on the date the Contributor first
+distributes such Contribution.
+
+2.3. Limitations on Grant Scope
+
+The licenses granted in this Section 2 are the only rights granted under
+this License. No additional rights or licenses will be implied from the
+distribution or licensing of Covered Software under this License.
+Notwithstanding Section 2.1(b) above, no patent license is granted by a
+Contributor:
+
+(a) for any code that a Contributor has removed from Covered Software;
+    or
+
+(b) for infringements caused by: (i) Your and any other third party's
+    modifications of Covered Software, or (ii) the combination of its
+    Contributions with other software (except as part of its Contributor
+    Version); or
+
+(c) under Patent Claims infringed by Covered Software in the absence of
+    its Contributions.
+
+This License does not grant any rights in the trademarks, service marks,
+or logos of any Contributor (except as may be necessary to comply with
+the notice requirements in Section 3.4).
+
+2.4. Subsequent Licenses
+
+No Contributor makes additional grants as a result of Your choice to
+distribute the Covered Software under a subsequent version of this
+License (see Section 10.2) or under the terms of a Secondary License (if
+permitted under the terms of Section 3.3).
+
+2.5. Representation
+
+Each Contributor represents that the Contributor believes its
+Contributions are its original creation(s) or it has sufficient rights
+to grant the rights to its Contributions conveyed by this License.
+
+2.6. Fair Use
+
+This License is not intended to limit any rights You have under
+applicable copyright doctrines of fair use, fair dealing, or other
+equivalents.
+
+2.7. Conditions
+
+Sections 3.1, 3.2, 3.3, and 3.4 are conditions of the licenses granted
+in Section 2.1.
+
+3. Responsibilities
+-------------------
+
+3.1. Distribution of Source Form
+
+All distribution of Covered Software in Source Code Form, including any
+Modifications that You create or to which You contribute, must be under
+the terms of this License. You must inform recipients that the Source
+Code Form of the Covered Software is governed by the terms of this
+License, and how they can obtain a copy of this License. You may not
+attempt to alter or restrict the recipients' rights in the Source Code
+Form.
+
+3.2. Distribution of Executable Form
+
+If You distribute Covered Software in Executable Form then:
+
+(a) such Covered Software must also be made available in Source Code
+    Form, as described in Section 3.1, and You must inform recipients of
+    the Executable Form how they can obtain a copy of such Source Code
+    Form by reasonable means in a timely manner, at a charge no more
+    than the cost of distribution to the recipient; and
+
+(b) You may distribute such Executable Form under the terms of this
+    License, or sublicense it under different terms, provided that the
+    license for the Executable Form does not attempt to limit or alter
+    the recipients' rights in the Source Code Form under this License.
+
+3.3. Distribution of a Larger Work
+
+You may create and distribute a Larger Work under terms of Your choice,
+provided that You also comply with the requirements of this License for
+the Covered Software. If the Larger Work is a combination of Covered
+Software with a work governed by one or more Secondary Licenses, and the
+Covered Software is not Incompatible With Secondary Licenses, this
+License permits You to additionally distribute such Covered Software
+under the terms of such Secondary License(s), so that the recipient of
+the Larger Work may, at their option, further distribute the Covered
+Software under the terms of either this License or such Secondary
+License(s).
+
+3.4. Notices
+
+You may not remove or alter the substance of any license notices
+(including copyright notices, patent notices, disclaimers of warranty,
+or limitations of liability) contained within the Source Code Form of
+the Covered Software, except that You may alter any license notices to
+the extent required to remedy known factual inaccuracies.
+
+3.5. Application of Additional Terms
+
+You may choose to offer, and to charge a fee for, warranty, support,
+indemnity or liability obligations to one or more recipients of Covered
+Software. However, You may do so only on Your own behalf, and not on
+behalf of any Contributor. You must make it absolutely clear that any
+such warranty, support, indemnity, or liability obligation is offered by
+You alone, and You hereby agree to indemnify every Contributor for any
+liability incurred by such Contributor as a result of warranty, support,
+indemnity or liability terms You offer. You may include additional
+disclaimers of warranty and limitations of liability specific to any
+jurisdiction.
+
+4. Inability to Comply Due to Statute or Regulation
+---------------------------------------------------
+
+If it is impossible for You to comply with any of the terms of this
+License with respect to some or all of the Covered Software due to
+statute, judicial order, or regulation then You must: (a) comply with
+the terms of this License to the maximum extent possible; and (b)
+describe the limitations and the code they affect. Such description must
+be placed in a text file included with all distributions of the Covered
+Software under this License. Except to the extent prohibited by statute
+or regulation, such description must be sufficiently detailed for a
+recipient of ordinary skill to be able to understand it.
+
+5. Termination
+--------------
+
+5.1. The rights granted under this License will terminate automatically
+if You fail to comply with any of its terms. However, if You become
+compliant, then the rights granted under this License from a particular
+Contributor are reinstated (a) provisionally, unless and until such
+Contributor explicitly and finally terminates Your grants, and (b) on an
+ongoing basis, if such Contributor fails to notify You of the
+non-compliance by some reasonable means prior to 60 days after You have
+come back into compliance. Moreover, Your grants from a particular
+Contributor are reinstated on an ongoing basis if such Contributor
+notifies You of the non-compliance by some reasonable means, this is the
+first time You have received notice of non-compliance with this License
+from such Contributor, and You become compliant prior to 30 days after
+Your receipt of the notice.
+
+5.2. If You initiate litigation against any entity by asserting a patent
+infringement claim (excluding declaratory judgment actions,
+counter-claims, and cross-claims) alleging that a Contributor Version
+directly or indirectly infringes any patent, then the rights granted to
+You by any and all Contributors for the Covered Software under Section
+2.1 of this License shall terminate.
+
+5.3. In the event of termination under Sections 5.1 or 5.2 above, all
+end user license agreements (excluding distributors and resellers) which
+have been validly granted by You or Your distributors under this License
+prior to termination shall survive termination.
+
+************************************************************************
+*                                                                      *
+*  6. Disclaimer of Warranty                                           *
+*  -------------------------                                           *
+*                                                                      *
+*  Covered Software is provided under this License on an "as is"       *
+*  basis, without warranty of any kind, either expressed, implied, or  *
+*  statutory, including, without limitation, warranties that the       *
+*  Covered Software is free of defects, merchantable, fit for a        *
+*  particular purpose or non-infringing. The entire risk as to the     *
+*  quality and performance of the Covered Software is with You.        *
+*  Should any Covered Software prove defective in any respect, You     *
+*  (not any Contributor) assume the cost of any necessary servicing,   *
+*  repair, or correction. This disclaimer of warranty constitutes an   *
+*  essential part of this License. No use of any Covered Software is   *
+*  authorized under this License except under this disclaimer.         *
+*                                                                      *
+************************************************************************
+
+************************************************************************
+*                                                                      *
+*  7. Limitation of Liability                                          *
+*  --------------------------                                          *
+*                                                                      *
+*  Under no circumstances and under no legal theory, whether tort      *
+*  (including negligence), contract, or otherwise, shall any           *
+*  Contributor, or anyone who distributes Covered Software as          *
+*  permitted above, be liable to You for any direct, indirect,         *
+*  special, incidental, or consequential damages of any character      *
+*  including, without limitation, damages for lost profits, loss of    *
+*  goodwill, work stoppage, computer failure or malfunction, or any    *
+*  and all other commercial damages or losses, even if such party      *
+*  shall have been informed of the possibility of such damages. This   *
+*  limitation of liability shall not apply to liability for death or   *
+*  personal injury resulting from such party's negligence to the       *
+*  extent applicable law prohibits such limitation. Some               *
+*  jurisdictions do not allow the exclusion or limitation of           *
+*  incidental or consequential damages, so this exclusion and          *
+*  limitation may not apply to You.                                    *
+*                                                                      *
+************************************************************************
+
+8. Litigation
+-------------
+
+Any litigation relating to this License may be brought only in the
+courts of a jurisdiction where the defendant maintains its principal
+place of business and such litigation shall be governed by laws of that
+jurisdiction, without reference to its conflict-of-law provisions.
+Nothing in this Section shall prevent a party's ability to bring
+cross-claims or counter-claims.
+
+9. Miscellaneous
+----------------
+
+This License represents the complete agreement concerning the subject
+matter hereof. If any provision of this License is held to be
+unenforceable, such provision shall be reformed only to the extent
+necessary to make it enforceable. Any law or regulation which provides
+that the language of a contract shall be construed against the drafter
+shall not be used to construe this License against a Contributor.
+
+10. Versions of the License
+---------------------------
+
+10.1. New Versions
+
+Mozilla Foundation is the license steward. Except as provided in Section
+10.3, no one other than the license steward has the right to modify or
+publish new versions of this License. Each version will be given a
+distinguishing version number.
+
+10.2. Effect of New Versions
+
+You may distribute the Covered Software under the terms of the version
+of the License under which You originally received the Covered Software,
+or under the terms of any subsequent version published by the license
+steward.
+
+10.3. Modified Versions
+
+If you create software not governed by this License, and you want to
+create a new license for such software, you may create and use a
+modified version of this License if you rename the license and remove
+any references to the name of the license steward (except to note that
+such modified license differs from this License).
+
+10.4. Distributing Source Code Form that is Incompatible With Secondary
+Licenses
+
+If You choose to distribute Source Code Form that is Incompatible With
+Secondary Licenses under the terms of this version of the License, the
+notice described in Exhibit B of this License must be attached.
+
+Exhibit A - Source Code Form License Notice
+-------------------------------------------
+
+  This Source Code Form is subject to the terms of the Mozilla Public
+  License, v. 2.0. If a copy of the MPL was not distributed with this
+  file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
+If it is not possible or desirable to put the notice in a particular
+file, then You may include the notice in a location (such as a LICENSE
+file in a relevant directory) where a recipient would be likely to look
+for such a notice.
+
+You may add additional accurate notices of copyright ownership.
+
+Exhibit B - "Incompatible With Secondary Licenses" Notice
+---------------------------------------------------------
+
+  This Source Code Form is "Incompatible With Secondary Licenses", as
+  defined by the Mozilla Public License, v. 2.0.
+END EXACT UPSTREAM LICENCE
+
+Zend Framework Glob adaptation
+==============================
+The shipped WP-CLI php/utils.php credits Zend Framework's fallbackGlob()
+and nextBraceSub() methods for copied/adapted code in glob_brace(), with
+the 2005-2015 Zend copyright and New BSD licence. This attribution concerns
+that scoped adaptation, not the whole utils.php file or WP-CLI component.
+Actual shipped source:
+https://raw.githubusercontent.com/wp-cli/wp-cli/03d30d4138d12b4bffd8b507b82e56e129e0523f/php/utils.php
+The original copied Zend revision is unspecified in that source. The full
+matching-period upstream notice below is pinned for notice reference only;
+it is not a claim that the copied fragment originated from that exact release.
+Notice-reference source: https://raw.githubusercontent.com/zendframework/zendframework/628b809fcadcd326f2074a9815e5b1fce57077ef/LICENSE.txt
+Licence-file SHA-256: ec23fc793e0472d7b34129069b71acb3efbfa3700c2317c7819657b30ba52e29
+
+BEGIN EXACT UPSTREAM LICENCE
+Copyright (c) 2005-2015, Zend Technologies USA, Inc.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification,
+are permitted provided that the following conditions are met:
+
+    * Redistributions of source code must retain the above copyright notice,
+      this list of conditions and the following disclaimer.
+
+    * Redistributions in binary form must reproduce the above copyright notice,
+      this list of conditions and the following disclaimer in the documentation
+      and/or other materials provided with the distribution.
+
+    * Neither the name of Zend Technologies USA, Inc. nor the names of its
+      contributors may be used to endorse or promote products derived from this
+      software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR
+ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+END EXACT UPSTREAM LICENCE
+
+Corrected shipped-component inventory
+=====================================
+The inventory below accounts for all 1162 PHAR member files: 1150 files in 55 vendor component directories,
+plus 12 bootstrap/Composer loader and generated metadata files listed separately.
+The table is derived from actual shipped member paths, not only composer.lock
+or production/development dependency flags. Support/test payloads are included.
+The original inventory also lists symfony/debug (no vendor payload here) and
+the wp-cli/wp-cli-bundle root/build project; neither is counted as an additional
+shipped vendor directory. Existing notices for those entries remain unchanged.
+The bootstrap is byte-identical to wp-cli/wp-cli-bundle's pinned php/boot-phar.php
+and uses that project's already supplied MIT notice. Composer-generated files
+use the supplied composer/composer notice. Nested Requests, ComplexPie and CA
+records below refine the wp-cli/wp-cli container attribution without double-counting.
+The pre-existing nb/oxymel exception remains explicit: its pinned composer.json
+declares MIT but upstream supplies no standalone licence file at that revision;
+the exact declaration remains in the original package. No attribution is invented.
+
+Inventory records below include component/version/revision, member counts and
+the location of the applicable unchanged packaged notice or this addendum.
+Member-inventory hashes use SHA-256 of compact JSON containing sorted
+[relative PHAR path, byte size, SHA-256] tuples for each component.
+
+BEGIN CORRECTED COVERAGE JSON
+{
+  "document_version": 1,
+  "product": "Snotic Self-Hosted",
+  "version": "0.1.30~rc1",
+  "bundle_sha256": "05bb2729f85cd3f377a4b3b3e0bff19d7905d0b07db21a536572bef6ffd92d08",
+  "package_sha256": "becfff27cae7e8c8bc9edb2eae629ec873e8a555d83d05d77cf8dee16658aa3e",
+  "phar_sha256": "ce34ddd838f7351d6759068d09793f26755463b4a4610a5a5c0a97b68220d85c",
+  "phar_member_count": 1162,
+  "vendor_component_count": 55,
+  "vendor_member_count": 1150,
+  "components": [
+    {
+      "name": "composer/ca-bundle",
+      "version": "1.4.7",
+      "source_commit": "9b8b487385d1a5140ad6765b9e9131fc3de3b891",
+      "source": "https://github.com/composer/ca-bundle.git",
+      "licence": "MIT",
+      "member_count": 1,
+      "member_inventory_sha256": "c9841af82bf3ea57ea3addee3cb27cdfe9378fa8dee6bf15b1d4b96d706d7d95",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/composer__ca-bundle@1.4.7/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "composer/composer",
+      "version": "2.2.25",
+      "source_commit": "0374e6fa9d20beeffa0765c890ace6b33cbb33bd",
+      "source": "https://github.com/composer/composer.git",
+      "licence": "MIT",
+      "member_count": 263,
+      "member_inventory_sha256": "34e57a27ebf2b36a906a9df5dd8a56f3f1eb8b8eb6ac461b9e8d8ce1432170b3",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/composer__composer@2.2.25/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "composer/metadata-minifier",
+      "version": "1.0.0",
+      "source_commit": "c549d23829536f0d0e984aaabbf02af91f443207",
+      "source": "https://github.com/composer/metadata-minifier.git",
+      "licence": "MIT",
+      "member_count": 1,
+      "member_inventory_sha256": "c447e8cd1833ddfe8ab8a19e17ef8fcfa3bc1827fd4e46ea667552e47a2f4205",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/composer__metadata-minifier@1.0.0/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "composer/pcre",
+      "version": "1.0.1",
+      "source_commit": "67a32d7d6f9f560b726ab25a061b38ff3a80c560",
+      "source": "https://github.com/composer/pcre.git",
+      "licence": "MIT",
+      "member_count": 8,
+      "member_inventory_sha256": "9881f3a8e0ff843dec7fa50e2adca5abb6fc052ce9c526b81fcbe0cd84b48999",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/composer__pcre@1.0.1/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "composer/semver",
+      "version": "3.4.3",
+      "source_commit": "4313d26ada5e0c4edfbd1dc481a92ff7bff91f12",
+      "source": "https://github.com/composer/semver.git",
+      "licence": "MIT",
+      "member_count": 12,
+      "member_inventory_sha256": "628acd4f567dfe762f2d200f98c02a68968cf9d04de100a12c68c62dcaad47da",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/composer__semver@3.4.3/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "composer/spdx-licenses",
+      "version": "1.5.8",
+      "source_commit": "560bdcf8deb88ae5d611c80a2de8ea9d0358cc0a",
+      "source": "https://github.com/composer/spdx-licenses.git",
+      "licence": "MIT",
+      "member_count": 1,
+      "member_inventory_sha256": "36511af039338d7b0b6c429ea1da958685025d5acbc36fbc2676fc8992f729cb",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/composer__spdx-licenses@1.5.8/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "composer/xdebug-handler",
+      "version": "2.0.5",
+      "source_commit": "9e36aeed4616366d2b690bdce11f71e9178c579a",
+      "source": "https://github.com/composer/xdebug-handler.git",
+      "licence": "MIT",
+      "member_count": 4,
+      "member_inventory_sha256": "829ca079bb182786c10373941a601ca18e397b9ae01b8243671466429b4fb0ae",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/composer__xdebug-handler@2.0.5/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "eftec/bladeone",
+      "version": "3.52",
+      "source_commit": "a19bf66917de0b29836983db87a455a4f6e32148",
+      "source": "https://github.com/EFTEC/BladeOne.git",
+      "licence": "MIT",
+      "member_count": 7,
+      "member_inventory_sha256": "358f266c1f60ce43a9d631e1360b553e08c50c7314a97342d110062cd0f4b683",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/eftec__bladeone@3.52/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "gettext/gettext",
+      "version": "v4.8.12",
+      "source_commit": "11af89ee6c087db3cf09ce2111a150bca5c46e12",
+      "source": "https://github.com/php-gettext/Gettext.git",
+      "licence": "MIT",
+      "member_count": 52,
+      "member_inventory_sha256": "7c6d3649ab356854fbf057538f4f8a0fc5645c44298433e31f73b3b39bbb2b3b",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/gettext__gettext@v4.8.12/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "gettext/languages",
+      "version": "2.12.1",
+      "source_commit": "0b0b0851c55168e1dfb14305735c64019732b5f1",
+      "source": "https://github.com/php-gettext/Languages.git",
+      "licence": "MIT",
+      "member_count": 13,
+      "member_inventory_sha256": "0f5a18803eef71a12ac8aa1762249ce2c5e05e0f1e57eb10640276cdf4dd2be1",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/gettext__languages@2.12.1/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "justinrainbow/json-schema",
+      "version": "v5.2.13",
+      "source_commit": "fbbe7e5d79f618997bc3332a6f49246036c45793",
+      "source": "https://github.com/jsonrainbow/json-schema.git",
+      "licence": "MIT",
+      "member_count": 43,
+      "member_inventory_sha256": "9ed5c4f1151e3f6dc27c85b2661532572725cd36496afad9115b403f52caceba",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/justinrainbow__json-schema@v5.2.13/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "mck89/peast",
+      "version": "v1.17.0",
+      "source_commit": "3a752d39bd7d8dc1e19bcf424f3d5ac1a1ca6ad5",
+      "source": "https://github.com/mck89/peast.git",
+      "licence": "BSD-3-Clause",
+      "member_count": 154,
+      "member_inventory_sha256": "d185a8c258937d4a1e88521d0a31322180f34123e05e341250b35a18540f64b0",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/mck89__peast@v1.17.0/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "nb/oxymel",
+      "version": "v0.1.0",
+      "source_commit": "cbe626ef55d5c4cc9b5e6e3904b395861ea76e3c",
+      "source": "https://github.com/nb/oxymel.git",
+      "licence": "MIT",
+      "member_count": 2,
+      "member_inventory_sha256": "18a96de4d7091d4b6f1a3165981a7230125c7dea8267dcff070dce4e161a6b2d",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/nb__oxymel@v0.1.0/LICENSE-DECLARATION.composer.json"
+      ],
+      "notice_status": "composer-declaration-no-upstream-license-file"
+    },
+    {
+      "name": "psr/container",
+      "version": "1.0.0",
+      "source_commit": "b7ce3b176482dbbc1245ebf52b181af44c2cf55f",
+      "source": "https://raw.githubusercontent.com/php-fig/container/b7ce3b176482dbbc1245ebf52b181af44c2cf55f/LICENSE",
+      "licence": "MIT",
+      "member_count": 3,
+      "member_inventory_sha256": "b1a19d04a1bbbae844b68a1e95447e189e4f8c38309c8f73b715be7c76c5de81",
+      "notice_location": [
+        "Snotic-Self-Hosted-0.1.30-rc1-THIRD-PARTY-NOTICE-ADDENDUM-v1.txt#psr/container"
+      ],
+      "notice_status": "exact-upstream-licence-in-required-addendum",
+      "upstream_licence_sha256": "0688ee39285c33067ad77d82349cdacb5569756bea4398b34bb223af9e57f1c0"
+    },
+    {
+      "name": "psr/log",
+      "version": "1.1.4",
+      "source_commit": "d49695b909c3b7628b6289db5479a1c204601f11",
+      "source": "https://github.com/php-fig/log.git",
+      "licence": "MIT",
+      "member_count": 8,
+      "member_inventory_sha256": "3a863ac8d8c9e7581249a8fb919982dac8c294d5b434f44db0b311c9bebf3cac",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/psr__log@1.1.4/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "react/promise",
+      "version": "v2.11.0",
+      "source_commit": "1a8460931ea36dc5c76838fec5734d55c88c6831",
+      "source": "https://github.com/reactphp/promise.git",
+      "licence": "MIT",
+      "member_count": 14,
+      "member_inventory_sha256": "e746da1ee1dee8783bcea0f7033a1b9b4166d7efd13c6e532ee288a79710aab3",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/react__promise@v2.11.0/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "seld/jsonlint",
+      "version": "1.11.0",
+      "source_commit": "1748aaf847fc731cfad7725aec413ee46f0cc3a2",
+      "source": "https://github.com/Seldaek/jsonlint.git",
+      "licence": "MIT",
+      "member_count": 5,
+      "member_inventory_sha256": "b80647ccdf82cd8bbbffd70ef1c1d21eb20ce75be8d29a72141bc8050572e595",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/seld__jsonlint@1.11.0/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "seld/phar-utils",
+      "version": "1.2.1",
+      "source_commit": "ea2f4014f163c1be4c601b9b7bd6af81ba8d701c",
+      "source": "https://github.com/Seldaek/phar-utils.git",
+      "licence": "MIT",
+      "member_count": 2,
+      "member_inventory_sha256": "1a4b29d086ea430e69079f49c453b7b1c3b770281992c922b6400b86ac8def84",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/seld__phar-utils@1.2.1/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "symfony/console",
+      "version": "v3.4.47",
+      "source_commit": "a10b1da6fc93080c180bba7219b5ff5b7518fe81",
+      "source": "https://github.com/symfony/console.git",
+      "licence": "MIT",
+      "member_count": 77,
+      "member_inventory_sha256": "e07fa1660a14e5459e53f00f2918052cbbbee206766b38780e75e6128e8ae4be",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/symfony__console@v3.4.47/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "symfony/filesystem",
+      "version": "v3.4.47",
+      "source_commit": "e58d7841cddfed6e846829040dca2cca0ebbbbb3",
+      "source": "https://github.com/symfony/filesystem.git",
+      "licence": "MIT",
+      "member_count": 6,
+      "member_inventory_sha256": "2d068bc1aa844511c14c85a8dc1712382551d33fd4de22a9b325b3a189cc4a14",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/symfony__filesystem@v3.4.47/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "symfony/finder",
+      "version": "v3.4.47",
+      "source_commit": "b6b6ad3db3edb1b4b1c1896b1975fb684994de6e",
+      "source": "https://github.com/symfony/finder.git",
+      "licence": "MIT",
+      "member_count": 21,
+      "member_inventory_sha256": "e855e2ca492ce3e0215b36d1f5be96702e7cc34ed30cbd668371ec9ac45487b2",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/symfony__finder@v3.4.47/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "symfony/polyfill-ctype",
+      "version": "v1.19.0",
+      "source_commit": "aed596913b70fae57be53d86faa2e9ef85a2297b",
+      "source": "https://github.com/symfony/polyfill-ctype.git",
+      "licence": "MIT",
+      "member_count": 2,
+      "member_inventory_sha256": "82d0bb1557ede28c29a5e65f3bb2ab732bd278f573faafebe04f4018530507d0",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/symfony__polyfill-ctype@v1.19.0/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "symfony/polyfill-mbstring",
+      "version": "v1.19.0",
+      "source_commit": "b5f7b932ee6fa802fc792eabd77c4c88084517ce",
+      "source": "https://github.com/symfony/polyfill-mbstring.git",
+      "licence": "MIT",
+      "member_count": 6,
+      "member_inventory_sha256": "404f0f5daa08718e91838e706085bec0e865ab626a5e7ab3337882c11d13dae5",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/symfony__polyfill-mbstring@v1.19.0/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "wp-cli/cache-command",
+      "version": "v2.2.0",
+      "source_commit": "14f76b0bc8f9fa0a680e9c70e18fcf627774d055",
+      "source": "https://github.com/wp-cli/cache-command.git",
+      "licence": "MIT",
+      "member_count": 3,
+      "member_inventory_sha256": "d760c8a038b432c6da82b45666e0de8b30aad0bfd5466964893a621a48cd84a8",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/wp-cli__cache-command@v2.2.0/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "wp-cli/checksum-command",
+      "version": "v2.3.1",
+      "source_commit": "39992dbd66835f8d5c2cc5bfeacf9d2c450cbafe",
+      "source": "https://github.com/wp-cli/checksum-command.git",
+      "licence": "MIT",
+      "member_count": 7,
+      "member_inventory_sha256": "38ca4cf01138b35c9efac2c22e0f7efe9f3f38df3bd162695f3dc0c1b5e28439",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/wp-cli__checksum-command@v2.3.1/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "wp-cli/config-command",
+      "version": "v2.3.8",
+      "source_commit": "994b3dc9e8284fc978366920d5c5ae0dde3a004e",
+      "source": "https://github.com/wp-cli/config-command.git",
+      "licence": "MIT",
+      "member_count": 3,
+      "member_inventory_sha256": "91d897f616934040496ed45a4af33e23dc2d2b6068ec2d961eeb4e0dcaaf7b4c",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/wp-cli__config-command@v2.3.8/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "wp-cli/core-command",
+      "version": "v2.1.20",
+      "source_commit": "83e4692784a815bb7f5df10b72204f237b5224b9",
+      "source": "https://github.com/wp-cli/core-command.git",
+      "licence": "MIT",
+      "member_count": 5,
+      "member_inventory_sha256": "ad557dfd27d4beeb0598df345b9126b851f934277f2b266f58cf554a6a54acce",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/wp-cli__core-command@v2.1.20/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "wp-cli/cron-command",
+      "version": "v2.3.2",
+      "source_commit": "6f450028a75ebd275f12cad62959a0709bf3e7c1",
+      "source": "https://github.com/wp-cli/cron-command.git",
+      "licence": "MIT",
+      "member_count": 4,
+      "member_inventory_sha256": "987f738f60af0cf5c730367ddbccd0400de93437431c779afeac90fd68b454c3",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/wp-cli__cron-command@v2.3.2/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "wp-cli/db-command",
+      "version": "v2.1.3",
+      "source_commit": "f857c91454d7092fa672bc388512a51752d9264a",
+      "source": "https://github.com/wp-cli/db-command.git",
+      "licence": "MIT",
+      "member_count": 2,
+      "member_inventory_sha256": "5eb2a028fc3ff4432b386303fc5da71795edd71871cccfc46504e9caca0c952e",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/wp-cli__db-command@v2.1.3/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "wp-cli/embed-command",
+      "version": "v2.0.18",
+      "source_commit": "52f59a1dacf1d4a1c68fd685f27909e1f493816b",
+      "source": "https://github.com/wp-cli/embed-command.git",
+      "licence": "MIT",
+      "member_count": 7,
+      "member_inventory_sha256": "8c4e43500bcb4d90ae9a2e93bc634ccee83b3d3fea06f0a749693682e8696900",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/wp-cli__embed-command@v2.0.18/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "wp-cli/entity-command",
+      "version": "v2.8.4",
+      "source_commit": "213611f8ab619ca137d983e9b987f7fbf1ac21d4",
+      "source": "https://github.com/wp-cli/entity-command.git",
+      "licence": "MIT",
+      "member_count": 28,
+      "member_inventory_sha256": "15787ca9165f822af2468878df7b820076adec8d5627d6049d8ba244f701e523",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/wp-cli__entity-command@v2.8.4/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "wp-cli/eval-command",
+      "version": "v2.2.6",
+      "source_commit": "20ec428a7b9bc604fab0bd33ee8fa20662650455",
+      "source": "https://github.com/wp-cli/eval-command.git",
+      "licence": "MIT",
+      "member_count": 3,
+      "member_inventory_sha256": "ef88dcaef50ac093915b7c26a191650138e5f056a85a332eb6dc4741f2ab62f9",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/wp-cli__eval-command@v2.2.6/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "wp-cli/export-command",
+      "version": "v2.1.14",
+      "source_commit": "2af32bf12c1bccd6561a215dbbafc2f272647ee8",
+      "source": "https://github.com/wp-cli/export-command.git",
+      "licence": "MIT",
+      "member_count": 16,
+      "member_inventory_sha256": "2691f9675e3232455f1616adfc1a9a7ac3c971939dfc82102af970d05f176f6f",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/wp-cli__export-command@v2.1.14/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "wp-cli/extension-command",
+      "version": "v2.1.24",
+      "source_commit": "d21a2f504ac43a86b6b08697669b5b0844748133",
+      "source": "https://github.com/wp-cli/extension-command.git",
+      "licence": "MIT",
+      "member_count": 15,
+      "member_inventory_sha256": "922f8bedb3b63e1baea6ac0c5e3e29a22b761ef53ede6fc56f72af7541897d20",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/wp-cli__extension-command@v2.1.24/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "wp-cli/i18n-command",
+      "version": "v2.6.5",
+      "source_commit": "5e73d417398993625331a9f69f6c2ef60f234070",
+      "source": "https://github.com/wp-cli/i18n-command.git",
+      "licence": "MIT",
+      "member_count": 21,
+      "member_inventory_sha256": "38a2cfa72b629d81e5a24df65a84550c69dc008a17c5233b83f4d6779fa8d38b",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/wp-cli__i18n-command@v2.6.5/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "wp-cli/import-command",
+      "version": "v2.0.14",
+      "source_commit": "b2c48f3e51683e825738df62bf8ccc7004c5f0f9",
+      "source": "https://github.com/wp-cli/import-command.git",
+      "licence": "MIT",
+      "member_count": 2,
+      "member_inventory_sha256": "02e987b3f5b34f312bab1e00078af0f5490b10bb0afd07c97d55198c44502b59",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/wp-cli__import-command@v2.0.14/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "wp-cli/language-command",
+      "version": "v2.0.23",
+      "source_commit": "7221cc39d2b14fd39e55aa7884889f26eec2f822",
+      "source": "https://github.com/wp-cli/language-command.git",
+      "licence": "MIT",
+      "member_count": 8,
+      "member_inventory_sha256": "3428efe2775e1dd1976acf3a0750617acb81f63d7f0ed33099e8547fdaac5355",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/wp-cli__language-command@v2.0.23/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "wp-cli/maintenance-mode-command",
+      "version": "v2.1.3",
+      "source_commit": "b947e094e00b7b68c6376ec9bd03303515864062",
+      "source": "https://github.com/wp-cli/maintenance-mode-command.git",
+      "licence": "MIT",
+      "member_count": 2,
+      "member_inventory_sha256": "6f70ab5a8238459eccfcacc1fb90d5835656c207799cffaa3905f0e9c520aa3e",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/wp-cli__maintenance-mode-command@v2.1.3/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "wp-cli/media-command",
+      "version": "v2.2.2",
+      "source_commit": "a810ea0e68473fce6a234e67c6c5f19bb820a753",
+      "source": "https://github.com/wp-cli/media-command.git",
+      "licence": "MIT",
+      "member_count": 2,
+      "member_inventory_sha256": "4504e7e39a504d4a3ba4061faf61c403d3d131b375d2de4c5ee7c109b88c6f9a",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/wp-cli__media-command@v2.2.2/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "wp-cli/mustache",
+      "version": "v2.14.99",
+      "source_commit": "ca23b97ac35fbe01c160549eb634396183d04a59",
+      "source": "https://github.com/wp-cli/mustache.php.git",
+      "licence": "MIT",
+      "member_count": 35,
+      "member_inventory_sha256": "c0f78f13be3bdc7edd1f92d1f48ea8b6b57eff265eb5e1a7799f1e3ab8622c86",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/wp-cli__mustache@v2.14.99/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "wp-cli/mustangostang-spyc",
+      "version": "0.6.3",
+      "source_commit": "6aa0b4da69ce9e9a2c8402dab8d43cf32c581cc7",
+      "source": "https://github.com/wp-cli/spyc.git",
+      "licence": "MIT",
+      "member_count": 6,
+      "member_inventory_sha256": "dc25bb20ded1955afe89655953da491154d4fc6cb63d1ab9f7891b22094b791d",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/wp-cli__mustangostang-spyc@0.6.3/COPYING"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "wp-cli/package-command",
+      "version": "v2.6.0",
+      "source_commit": "682d8c6bb30c782c3b09c015478c7cbe1cc727a9",
+      "source": "https://github.com/wp-cli/package-command.git",
+      "licence": "MIT",
+      "member_count": 7,
+      "member_inventory_sha256": "686507fadb19c3431c26750689169510006e323547695c3032cc1d1240ee001d",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/wp-cli__package-command@v2.6.0/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "wp-cli/php-cli-tools",
+      "version": "v0.12.5",
+      "source_commit": "34b83b4f700df8a4ec3fd17bf7e7e7d8ca5f28da",
+      "source": "https://github.com/wp-cli/php-cli-tools.git",
+      "licence": "MIT",
+      "member_count": 26,
+      "member_inventory_sha256": "e1ce68cb73a6442d9f1a0c13ba0c5472cdad5724176ab3d5b765d438cd2a81a3",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/wp-cli__php-cli-tools@v0.12.5/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "wp-cli/process",
+      "version": "v5.9.99",
+      "source_commit": "f0aec5ca26a702d3157e3a19982b662521ac2b81",
+      "source": "https://github.com/wp-cli/process.git",
+      "licence": "MIT",
+      "member_count": 17,
+      "member_inventory_sha256": "2e3fabb0741863477f9a0ef6109f171e5724e25b94b5024e8cd4f5a7600272bc",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/wp-cli__process@v5.9.99/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "wp-cli/rewrite-command",
+      "version": "v2.0.15",
+      "source_commit": "277ec689b7c268680ff429f52558508622c9b34c",
+      "source": "https://github.com/wp-cli/rewrite-command.git",
+      "licence": "MIT",
+      "member_count": 2,
+      "member_inventory_sha256": "a5b14bb5d8f4011c2225cf8f27ef31f10daf009d2ab5b1c9c07c72628ed6fdef",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/wp-cli__rewrite-command@v2.0.15/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "wp-cli/role-command",
+      "version": "v2.0.16",
+      "source_commit": "ed57fb5436b4d47954b07e56c734d19deb4fc491",
+      "source": "https://github.com/wp-cli/role-command.git",
+      "licence": "MIT",
+      "member_count": 3,
+      "member_inventory_sha256": "e499e941066e94e9326e004cd1a84b03c05b39977d60c905598449983b48b97a",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/wp-cli__role-command@v2.0.16/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "wp-cli/scaffold-command",
+      "version": "v2.5.0",
+      "source_commit": "b4238ea12e768b3f15d10339a53a8642f82e1d2b",
+      "source": "https://github.com/wp-cli/scaffold-command.git",
+      "licence": "MIT",
+      "member_count": 30,
+      "member_inventory_sha256": "992a07fd31c24a70d4595c9e95aad3d09e96e4693cbec2c29e585d067153985f",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/wp-cli__scaffold-command@v2.5.0/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "wp-cli/search-replace-command",
+      "version": "v2.1.8",
+      "source_commit": "65397a7bfdd5ba2cff26f3ab03ef0bcb916c0057",
+      "source": "https://github.com/wp-cli/search-replace-command.git",
+      "licence": "MIT",
+      "member_count": 3,
+      "member_inventory_sha256": "bcf664231193985c6ee0eb6da7c911166ecf4b5e224ee2764f5ce9d6e329c390",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/wp-cli__search-replace-command@v2.1.8/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "wp-cli/server-command",
+      "version": "v2.0.15",
+      "source_commit": "80a9243f94e0ac073f9bfdb516d2ac7e1fa01a71",
+      "source": "https://github.com/wp-cli/server-command.git",
+      "licence": "MIT",
+      "member_count": 3,
+      "member_inventory_sha256": "d43aadae28bc0619b14725b85383b42949a2cf54cec69bf0b68464338341a6e0",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/wp-cli__server-command@v2.0.15/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "wp-cli/shell-command",
+      "version": "v2.0.16",
+      "source_commit": "3af53a9f4b240e03e77e815b2ee10f229f1aa591",
+      "source": "https://github.com/wp-cli/shell-command.git",
+      "licence": "MIT",
+      "member_count": 3,
+      "member_inventory_sha256": "72c30ba3eebba496994a27d2e194692848391c4b4beb745f09f3db53cae7f0f7",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/wp-cli__shell-command@v2.0.16/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "wp-cli/super-admin-command",
+      "version": "v2.0.16",
+      "source_commit": "54ac063c384743ee414806d42cb8c61c6aa1fa8e",
+      "source": "https://github.com/wp-cli/super-admin-command.git",
+      "licence": "MIT",
+      "member_count": 2,
+      "member_inventory_sha256": "60facbf880f5c27a87e3cc46ce5f0628a80f18f332b36f01524cd5fa1f0f168f",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/wp-cli__super-admin-command@v2.0.16/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "wp-cli/widget-command",
+      "version": "v2.1.12",
+      "source_commit": "73084053f7b32d92583e44d870b81f287beea6a9",
+      "source": "https://github.com/wp-cli/widget-command.git",
+      "licence": "MIT",
+      "member_count": 3,
+      "member_inventory_sha256": "fca062e7b05eb7466947797152639f722f1a3c20e7b56fbc08fd211525c994ad",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/wp-cli__widget-command@v2.1.12/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "wp-cli/wp-cli",
+      "version": "v2.12.0",
+      "source_commit": "03d30d4138d12b4bffd8b507b82e56e129e0523f",
+      "source": "https://github.com/wp-cli/wp-cli.git",
+      "licence": "MIT",
+      "member_count": 165,
+      "member_inventory_sha256": "d1a45ca83f8f2ee06584a81ae4c7cd1c487a3f1de23acee0131d318ead169c69",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/wp-cli__wp-cli@v2.12.0/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    },
+    {
+      "name": "wp-cli/wp-cli-tests",
+      "version": "v4.3.14",
+      "source_commit": "b72c36dd0ebd70547c441f03c9257c3e857af4be",
+      "source": "https://raw.githubusercontent.com/wp-cli/wp-cli-tests/b72c36dd0ebd70547c441f03c9257c3e857af4be/LICENSE",
+      "licence": "MIT",
+      "member_count": 11,
+      "member_inventory_sha256": "21b32d543f02a829304d0fa34ec6762a4409a96de985420a77acc502f5766a00",
+      "notice_location": [
+        "Snotic-Self-Hosted-0.1.30-rc1-THIRD-PARTY-NOTICE-ADDENDUM-v1.txt#wp-cli/wp-cli-tests"
+      ],
+      "notice_status": "exact-upstream-licence-in-required-addendum",
+      "upstream_licence_sha256": "7b1e7b898618c53feba37b239e6d1c7de1882f0a6228c92c4800bfe9e58149e6"
+    },
+    {
+      "name": "wp-cli/wp-config-transformer",
+      "version": "v1.4.2",
+      "source_commit": "b78cab1159b43eb5ee097e2cfafe5eab573d2a8a",
+      "source": "https://github.com/wp-cli/wp-config-transformer.git",
+      "licence": "MIT",
+      "member_count": 1,
+      "member_inventory_sha256": "e3a5495c63750452d844cad98cb7d09e53f1ac856244e26754a3773c33dfcc4d",
+      "notice_location": [
+        "/usr/share/doc/hipanel/third-party/wp-cli-2.12.0/wp-cli__wp-config-transformer@v1.4.2/LICENSE"
+      ],
+      "notice_status": "upstream-license-files"
+    }
+  ],
+  "non_vendor_members": [
+    {
+      "name": "php/boot-phar.php",
+      "size": 1095,
+      "sha256": "91d3e1dfcea0c9abbe66032faea76d231e74c247fad44eb1d066008ab4693dcc",
+      "notice_component": "wp-cli/wp-cli-bundle"
+    },
+    {
+      "name": "vendor/autoload.php",
+      "size": 178,
+      "sha256": "446489d22c3934ac8570f9458c909c1e5d855db66cd25a84a857f0e46b78d3f9",
+      "notice_component": "composer/composer"
+    },
+    {
+      "name": "vendor/composer/ClassLoader.php",
+      "size": 16068,
+      "sha256": "c944c4b1228ef6bef01b0029205c562c96536f8e550052d753b57723d520e69a",
+      "notice_component": "composer/composer"
+    },
+    {
+      "name": "vendor/composer/InstalledVersions.php",
+      "size": 16065,
+      "sha256": "088972c331f038f11d51d487a5c9aae424cdc882d7298dd201ae32f54b296252",
+      "notice_component": "composer/composer"
+    },
+    {
+      "name": "vendor/composer/autoload_classmap.php",
+      "size": 14730,
+      "sha256": "8dc15f152c259ed6653e6111b5704f6bcc16039514549ca37f75a3cc7787c4bd",
+      "notice_component": "composer/composer"
+    },
+    {
+      "name": "vendor/composer/autoload_files.php",
+      "size": 3290,
+      "sha256": "573c9686638d35fff8442e5a5c9f3cf7b9c0598020f94db28e03df7f3fa01c77",
+      "notice_component": "composer/composer"
+    },
+    {
+      "name": "vendor/composer/autoload_namespaces.php",
+      "size": 383,
+      "sha256": "7ca85a72dd615021e08f9f0c5e3fad4f8082297694bbfec81304ba27f2cb0a52",
+      "notice_component": "composer/composer"
+    },
+    {
+      "name": "vendor/composer/autoload_psr4.php",
+      "size": 2660,
+      "sha256": "878651e7ae151f1d0698d14a3d29008d3e12b310e5f84b1a3c65bca94813bbd5",
+      "notice_component": "composer/composer"
+    },
+    {
+      "name": "vendor/composer/autoload_real.php",
+      "size": 2629,
+      "sha256": "4af4fd07565c4d2a6d15acc844172ce0a511552bda04cc7e19fae73e73b19c83",
+      "notice_component": "composer/composer"
+    },
+    {
+      "name": "vendor/composer/autoload_static.php",
+      "size": 28625,
+      "sha256": "8d77d2e28888b05669822b757bcbbe2b77d42483c96dc5553f685843266438e0",
+      "notice_component": "composer/composer"
+    },
+    {
+      "name": "vendor/composer/installed.php",
+      "size": 40040,
+      "sha256": "47b5480c2890dac10322ff87d497a4b72f26c51af993a967f6faeecfddfeb828",
+      "notice_component": "composer/composer"
+    },
+    {
+      "name": "vendor/composer/platform_check.php",
+      "size": 925,
+      "sha256": "a35a93ad352c7c414cd970603b92d1b8f0e01c96108d2e0febfbdc7c9558f1fa",
+      "notice_component": "composer/composer"
+    }
+  ],
+  "original_inventory_entries_without_vendor_payload": [
+    "symfony/debug",
+    "wp-cli/wp-cli-bundle"
+  ],
+  "nested_components": [
+    {
+      "name": "rmccue/requests",
+      "version": "2.0.12",
+      "licence": "ISC AND BSD-3-Clause",
+      "container_component": "wp-cli/wp-cli",
+      "members_already_counted_in_container": true,
+      "source_commit": "03d30d4138d12b4bffd8b507b82e56e129e0523f",
+      "source": "https://raw.githubusercontent.com/wp-cli/wp-cli/03d30d4138d12b4bffd8b507b82e56e129e0523f/bundle/rmccue/requests/LICENSE",
+      "member_count": 66,
+      "members": [
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/library/Deprecated.php",
+          "size": 545,
+          "sha256": "87f713bd41c932f684d7f0afa83ba70ff1bc9ff24ebe7112e3fb7183d2d465c7"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/library/Requests.php",
+          "size": 2237,
+          "sha256": "ba80036630999c9d445fbfca489a767dbbdcc23f960b89ab947c6eb213d9db8d"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Auth/Basic.php",
+          "size": 2541,
+          "sha256": "ab1c5a7a4ddb93747fbdf8d3bb50e93fa77a38762a22ed5226ca85e1fa8dfa54"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Auth.php",
+          "size": 860,
+          "sha256": "55ff2df53f03e60ec04f264ebb82d190e84867fdba28df4bd67d31921f895960"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Autoload.php",
+          "size": 9335,
+          "sha256": "e5eb035b64d0fd4b6b30f582c207955dd426c4faabf3695b83be09482febb514"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Capability.php",
+          "size": 652,
+          "sha256": "0d7c9dc6d64eeb226b77af8248775ed3903af655ffffd6796d14704e0f68802b"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Cookie/Jar.php",
+          "size": 4363,
+          "sha256": "1a7e0424bffb20752ee8b8dc807bab6bf8d02257e31f23989e72f7da54e3252f"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Cookie.php",
+          "size": 15389,
+          "sha256": "0ad287a5fdda8700eb3117c6637cdc60069a895fb780b8296ac8c809b756baf4"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Exception/ArgumentCount.php",
+          "size": 1460,
+          "sha256": "a6632c1a12b579783b3b3abe7f0d45d79b3c295d139146faecdd35c6622709b4"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Exception/Http/Status304.php",
+          "size": 460,
+          "sha256": "d542d2012c80a832a11179e9de5f2e579f91d99f4db8a4d79aab61ff7cd538e4"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Exception/Http/Status305.php",
+          "size": 451,
+          "sha256": "e1309028d5881c1574e46df1e599854c7f4cc4c1c9f1e4a041ac7f6dd4bb9eb9"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Exception/Http/Status306.php",
+          "size": 460,
+          "sha256": "ecc19b8458bc7c8d0cc69fab293c265ad41efed11f4b9366c10d40468267ab0d"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Exception/Http/Status400.php",
+          "size": 457,
+          "sha256": "66c435f25e14672f05694e29369366bd250ed373527aaa36b7b3bf29ed1b1a89"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Exception/Http/Status401.php",
+          "size": 460,
+          "sha256": "e74cca6cef841a444c6fd368398e72615f3decb5dcd8e6b0f4152ce44a7a5fd3"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Exception/Http/Status402.php",
+          "size": 472,
+          "sha256": "43c6d092f6f3724fc02eaccc03dade942b6eb521ce1fc84747b557f51eea0133"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Exception/Http/Status403.php",
+          "size": 451,
+          "sha256": "2c54292073012c2a4ce855e3bfa6f24aa252e6dae9c27aacd352e408d1aa5409"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Exception/Http/Status404.php",
+          "size": 451,
+          "sha256": "699b6626f7d05cbf609a9b7d01190be70c8247eaf7ea0f9a76fb43e8a85a52a2"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Exception/Http/Status405.php",
+          "size": 478,
+          "sha256": "bd8027b14eeeebe6c09a8dc7a2e6369649312e2de9e1dc10cb109288df97e33d"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Exception/Http/Status406.php",
+          "size": 466,
+          "sha256": "6a17029352c63b5ac0f3500d2c9ca1148ab9f29c981db5b9dc3948249b4de625"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Exception/Http/Status407.php",
+          "size": 511,
+          "sha256": "f70a269a2fab6df136f81679e0c1acd404e114b729226ea6ee1e567c58d1b63b"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Exception/Http/Status408.php",
+          "size": 469,
+          "sha256": "e31fc6ed62d86dd9bc9818b2953532c8f1ab552fe29e943260633a04caf97f8e"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Exception/Http/Status409.php",
+          "size": 448,
+          "sha256": "c1bd72ee2ba72bbb2f9b90e63799cff0a57a7d22400429203e8fef76df0f54ef"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Exception/Http/Status410.php",
+          "size": 436,
+          "sha256": "74287f0d729910f25eb742ef2a528ff5fd34847c95f02139eef1fd66fd0564c8"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Exception/Http/Status411.php",
+          "size": 469,
+          "sha256": "f48d82b8a6bbe29b5944b9ae43b86d2dfc9b00822786f72a03fd6b43675a744e"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Exception/Http/Status412.php",
+          "size": 481,
+          "sha256": "c9b3f2cc9e8bef48a7ec2eb3512e73aa4173d09ee8f836145ee4d4ffdb352dbe"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Exception/Http/Status413.php",
+          "size": 496,
+          "sha256": "ba21191df92298b3f5e696d5bd2304de126e7079a58aafc07abaf57f08e068b3"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Exception/Http/Status414.php",
+          "size": 487,
+          "sha256": "48e76a04e4b68d923bad98c60a5780f29e5742c9612969eaa85e99178fa3bfbf"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Exception/Http/Status415.php",
+          "size": 490,
+          "sha256": "5d37e1066f55b124202131f99cd1f1a6f0c652505ce8eccc3254e54afe45441b"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Exception/Http/Status416.php",
+          "size": 517,
+          "sha256": "5431ab8de0fd2a9bf5dbd002d0b800917e0dfa8ddf76621b3539de69db5da62c"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Exception/Http/Status417.php",
+          "size": 478,
+          "sha256": "4663bdded00c5d37fbd496ea9eb02fc7c9d269e025af5d51b6b787a522e0a0f6"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Exception/Http/Status418.php",
+          "size": 556,
+          "sha256": "d35d01decab8de5009630211257f4d3dfa910e28bbe137565546380819d3631f"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Exception/Http/Status428.php",
+          "size": 583,
+          "sha256": "6fa34afab1cbb4894e9dd4caaa27467ba7ff59470f656d27f23f03e2aa7abb1e"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Exception/Http/Status429.php",
+          "size": 627,
+          "sha256": "48ecac2d984be99bc448d43c4e9bcf495c2a3ca0fa4659a7fdacc21d2ca91879"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Exception/Http/Status431.php",
+          "size": 613,
+          "sha256": "c0856154f2f7cb350baaa171e45c16300164fadd5ab846c6cde097b621d06e81"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Exception/Http/Status500.php",
+          "size": 487,
+          "sha256": "22b93daa63b7a3c20c0aa5d4d6ebe5b5c717bc351c165adf02db0628418a49f0"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Exception/Http/Status501.php",
+          "size": 469,
+          "sha256": "92db81b9a7cdb04693e6088b4532bde4a193c17cb749a6c244b53232a06966b3"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Exception/Http/Status502.php",
+          "size": 457,
+          "sha256": "5cc5893df1b8a91a3911cc4307ce4cd584aed6c065502e1744c452a3200365b4"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Exception/Http/Status503.php",
+          "size": 481,
+          "sha256": "f4e92ac83b2c0ef4c596fd18affe8ece10836d578ba8ca9df8a3e84f68152a26"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Exception/Http/Status504.php",
+          "size": 469,
+          "sha256": "c0a3a1426f32a29a418c82c6f3e2694b8fe84ec83db93b2618a3f210db039753"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Exception/Http/Status505.php",
+          "size": 502,
+          "sha256": "181d699d679ae8619048865d1dc58222e0b725820bda79881f0ba00c361b2d84"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Exception/Http/Status511.php",
+          "size": 613,
+          "sha256": "6969ddf7b24ed27cf8906e55d7f0e60417f08d942b8999f8bff43d0d72f73f66"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Exception/Http/StatusUnknown.php",
+          "size": 970,
+          "sha256": "19864167b648019581dd7906046f6dcce64dd87c09f0fb5d60016348db954eb1"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Exception/Http.php",
+          "size": 1542,
+          "sha256": "6d9dc436afb2a8658a0c8d8a89aac2c92fee66190579e1f7a625621a5ebd3ec9"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Exception/InvalidArgument.php",
+          "size": 1106,
+          "sha256": "e07fece0cd8cb70aaacb9f6aea251041cd5706a711122bf947c24242d780da3b"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Exception/Transport/Curl.php",
+          "size": 1397,
+          "sha256": "3e4e73c24d32a8abc038964a4c76aaf187b96698eaed47815be4d5d27bddcb3c"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Exception/Transport.php",
+          "size": 244,
+          "sha256": "050498aedbbbcd3c24eb0457371aee9a061f41bd9829844a9cea4c9d82229ed5"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Exception.php",
+          "size": 1114,
+          "sha256": "442a7f6f0c2f8b7b06149dc5f0aeba4eef946f84b7f2ad8907bb621d7d281066"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/HookManager.php",
+          "size": 709,
+          "sha256": "4b09da68b4f523dd9d36f047117e0c1fd442c6aebc8e4cc3632e5ac1a04ff317"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Hooks.php",
+          "size": 2922,
+          "sha256": "2bb6087cb4a761715544898125471682f90033a17a9bfbd6420fef3a44c9911e"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/IdnaEncoder.php",
+          "size": 12447,
+          "sha256": "087fc47d99874d4c656bc40769bfc32006f0b87099cc4bce18b07a58eea97eed"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Ipv6.php",
+          "size": 5643,
+          "sha256": "cd22791b14895b1e9bb2c28953e65c400c6433109bbeeea925cbab650075c582"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Iri.php",
+          "size": 29059,
+          "sha256": "7acc3c3f098cc9cf203c2a76efeea5ab5b99b3ff4e5059bc4121e587e736ce56"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Port.php",
+          "size": 1505,
+          "sha256": "eab02dc614d84eb8e874ec743d1ede48cbac7df8f7841b664f6e97995e8d883c"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Proxy/Http.php",
+          "size": 4217,
+          "sha256": "4219fb6f79e9bf6cb6ccad40140ca7e58fe7929284a5f32f6a6e49967c8e6ec2"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Proxy.php",
+          "size": 867,
+          "sha256": "251c12ecb0eccb1ae9b3f54a7b7a568401704c94ce05a8a1ac0443b5c71dfed0"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Requests.php",
+          "size": 34001,
+          "sha256": "190e7a14b827d4ff041cc8895dcd33134475a9977fdae4a99a8838d253603f7d"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Response/Headers.php",
+          "size": 3101,
+          "sha256": "c8d0c3e503b6319ebf8f046e66fe32767bdb1451d1fced6083493ef6f8bbbae9"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Response.php",
+          "size": 4281,
+          "sha256": "e1293dcac689d3a371c88328f3d6761555c56a15702d090ad08a8d2e3cf844eb"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Session.php",
+          "size": 8997,
+          "sha256": "7aa018038569e29726aca443ed7a9d8c0aea83e533c172fe3c77d8c2b0334c9d"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Ssl.php",
+          "size": 5425,
+          "sha256": "d9a3dc1bdde30ec56cdeeddfcd685f29b75ef496f1a9669a800ccfb1d2fd1202"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Transport/Curl.php",
+          "size": 19571,
+          "sha256": "4498e570c33cc4de77333a07fa57b8f92343134ac12f467317df345676d4fe3f"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Transport/Fsockopen.php",
+          "size": 15899,
+          "sha256": "24386ac0368704c471635cbf151827a19c890fdb3547bb3bb81c549301a0c749"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Transport.php",
+          "size": 1544,
+          "sha256": "ca39e25d43c50f81514d2f441f492e3fa412f932c587ba579eb5d95d91f3096b"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Utility/CaseInsensitiveDictionary.php",
+          "size": 2507,
+          "sha256": "d3888d08b438ad224125d31fc1de6e816d50374c9af4b426b65f31c598fd7df3"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Utility/FilteredIterator.php",
+          "size": 2157,
+          "sha256": "e3c6c32f1bfbdfc67507faf583bb66e3c416243a856d1c1328a5347b7cce24f4"
+        },
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Utility/InputValidator.php",
+          "size": 2512,
+          "sha256": "ddbe22b3f5ed77f3dd522cac31404298cee44a61b9acc30d449c1edd0577c4e1"
+        }
+      ],
+      "notice_location": "Snotic-Self-Hosted-0.1.30-rc1-THIRD-PARTY-NOTICE-ADDENDUM-v1.txt",
+      "upstream_licence_sha256": "c08c66f8037c23f20614b58c0cbab6bbacef833dfa9c6a3a00ad3dc3344c2040"
+    },
+    {
+      "name": "ComplexPie IRI Parser",
+      "version": "as bundled in Requests 2.0.12",
+      "licence": "BSD-3-Clause",
+      "container_component": "wp-cli/wp-cli",
+      "members_already_counted_in_container": true,
+      "source_commit": "03d30d4138d12b4bffd8b507b82e56e129e0523f",
+      "source": "https://raw.githubusercontent.com/wp-cli/wp-cli/03d30d4138d12b4bffd8b507b82e56e129e0523f/bundle/rmccue/requests/LICENSE",
+      "member_count": 1,
+      "members": [
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Iri.php",
+          "size": 29059,
+          "sha256": "7acc3c3f098cc9cf203c2a76efeea5ab5b99b3ff4e5059bc4121e587e736ce56"
+        }
+      ],
+      "notice_location": "Snotic-Self-Hosted-0.1.30-rc1-THIRD-PARTY-NOTICE-ADDENDUM-v1.txt",
+      "upstream_licence_sha256": "c08c66f8037c23f20614b58c0cbab6bbacef833dfa9c6a3a00ad3dc3344c2040"
+    },
+    {
+      "name": "Mozilla CA certificate data",
+      "version": "2024-07-02",
+      "licence": "MPL-2.0",
+      "container_component": "wp-cli/wp-cli",
+      "members_already_counted_in_container": true,
+      "source_commit": "03d30d4138d12b4bffd8b507b82e56e129e0523f",
+      "source": "https://raw.githubusercontent.com/wp-cli/wp-cli/03d30d4138d12b4bffd8b507b82e56e129e0523f/bundle/rmccue/requests/certificates/cacert.pem",
+      "member_count": 1,
+      "members": [
+        {
+          "name": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/certificates/cacert.pem",
+          "size": 228633,
+          "sha256": "1bf458412568e134a4514f5e170a328d11091e071c7110955c9884ed87972ac9"
+        }
+      ],
+      "notice_location": "Snotic-Self-Hosted-0.1.30-rc1-THIRD-PARTY-NOTICE-ADDENDUM-v1.txt",
+      "upstream_licence_sha256": "3f3d9e0024b1921b067d6f7f88deb4a60cbe7a78e76c64e3f1d7fc3b779b9d04"
+    }
+  ],
+  "bootstrap_source": "https://raw.githubusercontent.com/wp-cli/wp-cli-bundle/d639a3dab65f4b935b21c61ea3662bf3258a03a5/php/boot-phar.php",
+  "nested_inventory_note": "Nested records identify overlapping subsets of the existing wp-cli/wp-cli member inventory, not additional PHAR files; the IRI parser is also a subset of Requests.",
+  "scoped_adaptations": [
+    {
+      "name": "Zend Framework Glob adaptation",
+      "scope": "glob_brace() copied/adapted code only; not the entire utils.php file",
+      "original_copied_revision": "unspecified in shipped source",
+      "licence": "BSD-3-Clause",
+      "container_component": "wp-cli/wp-cli",
+      "members_already_counted_in_container": true,
+      "phar_relative_path": "vendor/wp-cli/wp-cli/php/utils.php",
+      "sha256": "0ab184f7cbcf26a0adfda53ac0447ba01a8b3c6f831bb4ec5e929a987d0b2c32",
+      "shipped_source_commit": "03d30d4138d12b4bffd8b507b82e56e129e0523f",
+      "notice_reference_commit": "628b809fcadcd326f2074a9815e5b1fce57077ef",
+      "notice_reference_source": "https://raw.githubusercontent.com/zendframework/zendframework/628b809fcadcd326f2074a9815e5b1fce57077ef/LICENSE.txt",
+      "upstream_licence_sha256": "ec23fc793e0472d7b34129069b71acb3efbfa3700c2317c7819657b30ba52e29",
+      "notice_location": "Snotic-Self-Hosted-0.1.30-rc1-THIRD-PARTY-NOTICE-ADDENDUM-v1.txt"
+    }
+  ],
+  "retained_source_attributions": [
+    {
+      "phar_relative_path": "vendor/composer/ca-bundle/src/CaBundle.php",
+      "sha256": "1f75c059f54c043bc26fb3801131df9fc45380983ce68a83b0cab875beec5928",
+      "line": 33,
+      "attribution": "Sslurp/Evan Coury"
+    },
+    {
+      "phar_relative_path": "vendor/composer/composer/src/Composer/Util/TlsHelper.php",
+      "sha256": "8af2799f787ff4d290c64d5ebdba9c5d522d19f036a2f3cc1b415c34942b63c1",
+      "line": 104,
+      "attribution": "Sslurp/Evan Coury; Kevin McArthur source credit"
+    },
+    {
+      "phar_relative_path": "vendor/composer/composer/src/Composer/Autoload/ClassMapGenerator.php",
+      "sha256": "c52e2b28658718be9ad7eb66f0002fe51d4701a38b7730acf372e54f900ffff1",
+      "line": 14,
+      "attribution": "Symfony/Fabien Potencier"
+    },
+    {
+      "phar_relative_path": "vendor/composer/composer/src/Composer/Json/JsonFormatter.php",
+      "sha256": "f63a4c6a0222add5ab1ac912cfeb2f1d7cd3c67bc9b78ca1edd133ecf216d981",
+      "line": 31,
+      "attribution": "Dave Perrett"
+    },
+    {
+      "phar_relative_path": "vendor/composer/composer/src/Composer/Util/ProcessExecutor.php",
+      "sha256": "15675d6085cb45635c4c72ccfad7defc30b14f3b079ac35d2fa642251ddbde0e",
+      "line": 474,
+      "attribution": "John Stevenson/winbox-args"
+    },
+    {
+      "phar_relative_path": "vendor/composer/xdebug-handler/src/Process.php",
+      "sha256": "20f60c12a336464dbfde2e9564e149b01048c148bb7617406f031a0e566eef0a",
+      "line": 27,
+      "attribution": "John Stevenson/winbox-args"
+    },
+    {
+      "phar_relative_path": "vendor/symfony/finder/Glob.php",
+      "sha256": "8bba132325113237cab5225e917339809218d1daf1863c9be5a121a60d1b20cb",
+      "line": 32,
+      "attribution": "Perl Text::Glob/Richard Clamp; Fabien Potencier port"
+    },
+    {
+      "phar_relative_path": "vendor/symfony/finder/Comparator/NumberComparator.php",
+      "sha256": "fa9e862160987b41fafab8e6ddcb8ac6cdb8ba4a38f0d86993244d17469fc62a",
+      "line": 29,
+      "attribution": "Perl Number::Compare/Richard Clamp; Fabien Potencier port"
+    },
+    {
+      "phar_relative_path": "vendor/wp-cli/wp-cli/php/WP_CLI/FileCache.php",
+      "sha256": "90ac7cbe2f64940b8d69743dea407427c8fe7856cc266cb833ae18a9adfbe39d",
+      "line": 7,
+      "attribution": "Composer 1.0.0-alpha7 code credit"
+    },
+    {
+      "phar_relative_path": "vendor/wp-cli/wp-cli/php/WP_CLI/Inflector.php",
+      "sha256": "1f9f17e255cfe181e8cf7c5d95cfd57536791094a7670f345a26e4128422d559",
+      "line": 16,
+      "attribution": "Doctrine/CakePHP source credit"
+    },
+    {
+      "phar_relative_path": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Iri.php",
+      "sha256": "7acc3c3f098cc9cf203c2a76efeea5ab5b99b3ff4e5059bc4121e587e736ce56",
+      "line": 19,
+      "attribution": "ComplexPie IRI Parser"
+    },
+    {
+      "phar_relative_path": "vendor/wp-cli/wp-cli/bundle/rmccue/requests/src/Ipv6.php",
+      "sha256": "cd22791b14895b1e9bb2c28953e65c400c6433109bbeeea925cbab650075c582",
+      "line": 35,
+      "attribution": "PHP Group/PEAR-derived IPv6 attribution"
+    },
+    {
+      "phar_relative_path": "vendor/wp-cli/core-command/src/Core_Command.php",
+      "sha256": "2dc65588896c776eb2c95a06b5aa2c8b92574f43b5993c220c58633c54aa1869",
+      "line": 801,
+      "attribution": "WordPress adaptation credit"
+    },
+    {
+      "phar_relative_path": "vendor/wp-cli/db-command/src/DB_Command.php",
+      "sha256": "c6ed33770158ddf96436721622e89ac1b642f45455c874d761c2e3cfc8ed5bb1",
+      "line": 2099,
+      "attribution": "WordPress adaptation credit"
+    },
+    {
+      "phar_relative_path": "vendor/wp-cli/media-command/src/Media_Command.php",
+      "sha256": "3c6d1c6ed06b92ccb9c628096b9420bff56245d0837a50317f57cbfe327f271a",
+      "line": 843,
+      "attribution": "WordPress adaptation credit"
+    },
+    {
+      "phar_relative_path": "vendor/wp-cli/package-command/src/WP_CLI/JsonManipulator.php",
+      "sha256": "d679cb02b0334c1ebd6f84d0524008b86124901422909cb6f52c8d8a9299c886",
+      "line": 4,
+      "attribution": "Composer JsonManipulator adaptation"
+    },
+    {
+      "phar_relative_path": "vendor/wp-cli/wp-cli/php/utils.php",
+      "sha256": "0ab184f7cbcf26a0adfda53ac0447ba01a8b3c6f831bb4ec5e929a987d0b2c32",
+      "line": 1346,
+      "attribution": "Zend Framework Glob adaptation"
+    },
+    {
+      "phar_relative_path": "vendor/wp-cli/wp-cli/php/utils.php",
+      "sha256": "0ab184f7cbcf26a0adfda53ac0447ba01a8b3c6f831bb4ec5e929a987d0b2c32",
+      "line": 1669,
+      "attribution": "WordPress wp-db adaptation credit"
+    }
+  ],
+  "source_attribution_note": "These are scoped retained source credits, not new PHAR files or invented original revisions. Applicable inline notices remain in the exact shipped member; the Zend adaptation is additionally covered by this addendum."
+}
+END CORRECTED COVERAGE JSON
+
+Keep this addendum and its detached SHA-256 OpenPGP signature available offline.
+Verify the complete supplied distribution before installation or onward handoff.

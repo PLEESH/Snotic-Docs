@@ -10,17 +10,181 @@
     "sha256": "becfff27cae7e8c8bc9edb2eae629ec873e8a555d83d05d77cf8dee16658aa3e"
   },
   "files": [
-    {"name": "hipanel_0.1.30~rc1_amd64.tar.gz", "label": "Signed product bundle", "size": 12344056, "sha256": "05bb2729f85cd3f377a4b3b3e0bff19d7905d0b07db21a536572bef6ffd92d08", "content_type": "application/gzip"},
-    {"name": "hipanel_0.1.30~rc1_amd64.tar.gz.asc", "label": "Bundle signature", "size": 833, "sha256": "e650a462dce2a8da78c94c8bf8649d15043e4d140c2cc1e2c102c44c627964c6", "content_type": "application/pgp-signature"},
-    {"name": "hipanel_0.1.30~rc1_amd64.tar.gz.sha256", "label": "Bundle checksum", "size": 98, "sha256": "9c8d420cdca7e02d442efddcb35bf26f8b30553995ccbd335f4ff73d9c10745e", "content_type": "text/plain; charset=utf-8"},
-    {"name": "hipanel_0.1.30~rc1_amd64.tar.gz.sha256.asc", "label": "Checksum signature", "size": 833, "sha256": "576774350a2785dd86167af0d4d2e9a0cb97f7f0f039c4b92a6e0e9b18583362", "content_type": "application/pgp-signature"},
-    {"name": "hipanel-archive-key.asc", "label": "Armored public key", "size": 1700, "sha256": "a37cef936d17b73589f3737be4ae3f6f93e3c73132426b127e0bae5a36f08fe3", "content_type": "application/pgp-keys"},
-    {"name": "hipanel-archive-key.asc.asc", "label": "Armored public key signature", "size": 833, "sha256": "7c36cfbf2c85acff72b9e02fd843e82506161852c0fa7f191ce7a3c920749344", "content_type": "application/pgp-signature"},
-    {"name": "hipanel-archive-keyring.gpg", "label": "Binary public keyring", "size": 1197, "sha256": "f8a70a5c03bfad9a9471b04be4a55f1116d155c451316f8d952eb3d726236d32", "content_type": "application/pgp-keys"},
-    {"name": "hipanel-archive-keyring.gpg.asc", "label": "Public keyring signature", "size": 833, "sha256": "be160de7d09217498ab837aeab2afcf8ccb5ad7076750e23203ab1eb9f44b137", "content_type": "application/pgp-signature"},
-    {"name": "INSTALL.txt", "label": "Signed installation and recovery guide", "size": 9324, "sha256": "746b7ade29796697d7d426d90ebbc0155573b0a48d14ca9a5c1a0491a355abaa", "content_type": "text/plain; charset=utf-8"},
-    {"name": "INSTALL.txt.asc", "label": "Guide signature", "size": 833, "sha256": "26aeca89302697e3687de13e5b0bab0eeb4c9efe92caa44b97bd933976068095", "content_type": "application/pgp-signature"},
-    {"name": "snotic-self-hosted-preflight.py", "label": "Read-only server preflight", "size": 15856, "sha256": "fc4fa0768e702adfcd58539255790aa7c1ceca616e262cd000c46a12e7be986b", "content_type": "text/x-python; charset=utf-8"},
-    {"name": "snotic-self-hosted-preflight.py.asc", "label": "Preflight signature", "size": 833, "sha256": "f2c7505eabf01dc247b9e826fc11fd00d526b684cb8c05e1e12cd25997bbd660", "content_type": "application/pgp-signature"}
+    {
+      "name": "hipanel_0.1.30~rc1_amd64.tar.gz",
+      "label": "Signed product bundle",
+      "size": 12344056,
+      "sha256": "05bb2729f85cd3f377a4b3b3e0bff19d7905d0b07db21a536572bef6ffd92d08",
+      "content_type": "application/gzip",
+      "object_key": "public/self-hosted/0.1.30-rc1/hipanel_0.1.30~rc1_amd64.tar.gz"
+    },
+    {
+      "name": "hipanel_0.1.30~rc1_amd64.tar.gz.asc",
+      "label": "Bundle signature",
+      "size": 833,
+      "sha256": "e650a462dce2a8da78c94c8bf8649d15043e4d140c2cc1e2c102c44c627964c6",
+      "content_type": "application/pgp-signature",
+      "object_key": "public/self-hosted/0.1.30-rc1/hipanel_0.1.30~rc1_amd64.tar.gz.asc"
+    },
+    {
+      "name": "hipanel_0.1.30~rc1_amd64.tar.gz.sha256",
+      "label": "Bundle checksum",
+      "size": 98,
+      "sha256": "9c8d420cdca7e02d442efddcb35bf26f8b30553995ccbd335f4ff73d9c10745e",
+      "content_type": "text/plain; charset=utf-8",
+      "object_key": "public/self-hosted/0.1.30-rc1/hipanel_0.1.30~rc1_amd64.tar.gz.sha256"
+    },
+    {
+      "name": "hipanel_0.1.30~rc1_amd64.tar.gz.sha256.asc",
+      "label": "Checksum signature",
+      "size": 833,
+      "sha256": "576774350a2785dd86167af0d4d2e9a0cb97f7f0f039c4b92a6e0e9b18583362",
+      "content_type": "application/pgp-signature",
+      "object_key": "public/self-hosted/0.1.30-rc1/hipanel_0.1.30~rc1_amd64.tar.gz.sha256.asc"
+    },
+    {
+      "name": "hipanel-archive-key.asc",
+      "label": "Armored public key",
+      "size": 1700,
+      "sha256": "a37cef936d17b73589f3737be4ae3f6f93e3c73132426b127e0bae5a36f08fe3",
+      "content_type": "application/pgp-keys",
+      "object_key": "public/self-hosted/0.1.30-rc1/hipanel-archive-key.asc"
+    },
+    {
+      "name": "hipanel-archive-key.asc.asc",
+      "label": "Armored public key signature",
+      "size": 833,
+      "sha256": "7c36cfbf2c85acff72b9e02fd843e82506161852c0fa7f191ce7a3c920749344",
+      "content_type": "application/pgp-signature",
+      "object_key": "public/self-hosted/0.1.30-rc1/hipanel-archive-key.asc.asc"
+    },
+    {
+      "name": "hipanel-archive-keyring.gpg",
+      "label": "Binary public keyring",
+      "size": 1197,
+      "sha256": "f8a70a5c03bfad9a9471b04be4a55f1116d155c451316f8d952eb3d726236d32",
+      "content_type": "application/pgp-keys",
+      "object_key": "public/self-hosted/0.1.30-rc1/hipanel-archive-keyring.gpg"
+    },
+    {
+      "name": "hipanel-archive-keyring.gpg.asc",
+      "label": "Public keyring signature",
+      "size": 833,
+      "sha256": "be160de7d09217498ab837aeab2afcf8ccb5ad7076750e23203ab1eb9f44b137",
+      "content_type": "application/pgp-signature",
+      "object_key": "public/self-hosted/0.1.30-rc1/hipanel-archive-keyring.gpg.asc"
+    },
+    {
+      "name": "INSTALL.txt",
+      "label": "Signed installation and recovery guide",
+      "size": 9324,
+      "sha256": "746b7ade29796697d7d426d90ebbc0155573b0a48d14ca9a5c1a0491a355abaa",
+      "content_type": "text/plain; charset=utf-8",
+      "object_key": "public/self-hosted/0.1.30-rc1/INSTALL.txt"
+    },
+    {
+      "name": "INSTALL.txt.asc",
+      "label": "Guide signature",
+      "size": 833,
+      "sha256": "26aeca89302697e3687de13e5b0bab0eeb4c9efe92caa44b97bd933976068095",
+      "content_type": "application/pgp-signature",
+      "object_key": "public/self-hosted/0.1.30-rc1/INSTALL.txt.asc"
+    },
+    {
+      "name": "snotic-self-hosted-preflight.py",
+      "label": "Read-only server preflight",
+      "size": 15856,
+      "sha256": "fc4fa0768e702adfcd58539255790aa7c1ceca616e262cd000c46a12e7be986b",
+      "content_type": "text/x-python; charset=utf-8",
+      "object_key": "public/self-hosted/0.1.30-rc1/snotic-self-hosted-preflight.py"
+    },
+    {
+      "name": "snotic-self-hosted-preflight.py.asc",
+      "label": "Preflight signature",
+      "size": 833,
+      "sha256": "f2c7505eabf01dc247b9e826fc11fd00d526b684cb8c05e1e12cd25997bbd660",
+      "content_type": "application/pgp-signature",
+      "object_key": "public/self-hosted/0.1.30-rc1/snotic-self-hosted-preflight.py.asc"
+    },
+    {
+      "name": "Snotic-Self-Hosted-0.1.30-rc1-THIRD-PARTY-NOTICE-ADDENDUM-v1.txt",
+      "label": "Required third-party notice addendum v1",
+      "size": 86751,
+      "sha256": "dbc4d5d4bea6c39b66035e4882e167c48f75cbd5eee518cbe1d037d9cced66fb",
+      "content_type": "text/plain; charset=utf-8",
+      "object_key": "public/self-hosted/0.1.30-rc1/Snotic-Self-Hosted-0.1.30-rc1-THIRD-PARTY-NOTICE-ADDENDUM-v1.txt"
+    },
+    {
+      "name": "Snotic-Self-Hosted-0.1.30-rc1-THIRD-PARTY-NOTICE-ADDENDUM-v1.txt.asc",
+      "label": "Required third-party notice addendum v1 signature",
+      "size": 833,
+      "sha256": "f8e535e9932c840334fdbcd3c80e307b1412a7f50f032f2f335dc7fa69d4167e",
+      "content_type": "application/pgp-signature",
+      "object_key": "public/self-hosted/0.1.30-rc1/Snotic-Self-Hosted-0.1.30-rc1-THIRD-PARTY-NOTICE-ADDENDUM-v1.txt.asc"
+    },
+    {
+      "name": "Snotic-Self-Hosted-0.1.30-rc1-THIRD-PARTY-NOTICE-ADDENDUM-v1.txt.sha256",
+      "label": "Required third-party notice addendum v1 checksum",
+      "size": 131,
+      "sha256": "05d7ce4a387e7e1d2885021fb1ae94120aea61b33d599bdca91c054f01b4df86",
+      "content_type": "text/plain; charset=utf-8",
+      "object_key": "public/self-hosted/0.1.30-rc1/Snotic-Self-Hosted-0.1.30-rc1-THIRD-PARTY-NOTICE-ADDENDUM-v1.txt.sha256"
+    },
+    {
+      "name": "Snotic-Self-Hosted-0.1.30-rc1-THIRD-PARTY-NOTICE-ADDENDUM-v1.txt.sha256.asc",
+      "label": "Required third-party notice addendum v1 checksum signature",
+      "size": 833,
+      "sha256": "8c493e068dd2c0085be521c40628428c35789243cd70614c4bf550665b20fbcb",
+      "content_type": "application/pgp-signature",
+      "object_key": "public/self-hosted/0.1.30-rc1/Snotic-Self-Hosted-0.1.30-rc1-THIRD-PARTY-NOTICE-ADDENDUM-v1.txt.sha256.asc"
+    },
+    {
+      "name": "Snotic-Self-Hosted-0.1.30-rc1-PUBLIC-USE-SUPPLEMENT-v1.txt",
+      "label": "Required approved public-use supplement v1",
+      "size": 2161,
+      "sha256": "cb755d684eb36bb1621e6e8031e512b75373d6f30424f569f85f2abd93ba6929",
+      "content_type": "text/plain; charset=utf-8",
+      "object_key": "public/self-hosted/0.1.30-rc1/Snotic-Self-Hosted-0.1.30-rc1-PUBLIC-USE-SUPPLEMENT-v1.txt"
+    },
+    {
+      "name": "Snotic-Self-Hosted-0.1.30-rc1-PUBLIC-USE-SUPPLEMENT-v1.txt.asc",
+      "label": "Required approved public-use supplement v1 signature",
+      "size": 833,
+      "sha256": "3751e7d4b86fe0ec6dd439d05daa2005181b60f9e1460ef93ca454529b49171c",
+      "content_type": "application/pgp-signature",
+      "object_key": "public/self-hosted/0.1.30-rc1/Snotic-Self-Hosted-0.1.30-rc1-PUBLIC-USE-SUPPLEMENT-v1.txt.asc"
+    },
+    {
+      "name": "Snotic-Self-Hosted-0.1.30-rc1-PUBLIC-USE-SUPPLEMENT-v1.txt.sha256",
+      "label": "Required approved public-use supplement v1 checksum",
+      "size": 125,
+      "sha256": "aaec58b897f790dc644284b3b08fb1b70f996c24a2f8d1bfe42ccb3521030807",
+      "content_type": "text/plain; charset=utf-8",
+      "object_key": "public/self-hosted/0.1.30-rc1/Snotic-Self-Hosted-0.1.30-rc1-PUBLIC-USE-SUPPLEMENT-v1.txt.sha256"
+    },
+    {
+      "name": "Snotic-Self-Hosted-0.1.30-rc1-PUBLIC-USE-SUPPLEMENT-v1.txt.sha256.asc",
+      "label": "Required approved public-use supplement v1 checksum signature",
+      "size": 833,
+      "sha256": "41f2b5536e66d1380c5213ffbf8fa3297294abe8022088966d5d4ca02b400910",
+      "content_type": "application/pgp-signature",
+      "object_key": "public/self-hosted/0.1.30-rc1/Snotic-Self-Hosted-0.1.30-rc1-PUBLIC-USE-SUPPLEMENT-v1.txt.sha256.asc"
+    }
+  ],
+  "page_assets": [
+    {
+      "name": "index.html",
+      "object_key": "public/index.html",
+      "size": 14961,
+      "sha256": "ed25771942b28f5905f896ce79806d3eb1f3bec34b7cbaee28aa311016a34e31",
+      "content_type": "text/html; charset=utf-8"
+    },
+    {
+      "name": "styles.css",
+      "object_key": "public/styles.css",
+      "size": 3391,
+      "sha256": "ed2748cbee696dd1e1a4bbd4acdbb538f4e698ade67bb81a6a3237824f0fddfb",
+      "content_type": "text/css; charset=utf-8"
+    }
   ]
 }
