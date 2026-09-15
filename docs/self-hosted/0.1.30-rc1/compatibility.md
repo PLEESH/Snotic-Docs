@@ -42,8 +42,9 @@ independent host snapshot before package changes.
 
 ## Early Access limits
 
-- The distribution is supplied privately to approved recipients and is not a
-  public download.
+- Anonymous downloading is available, but download availability does not
+  broaden the [embedded use grant](use-terms.md). That grant still applies to
+  individually authorized recipients until a separate supplement is approved.
 - The core application is not represented as open source.
 - There is no automatic update, public APT promotion, SLA, managed monitoring,
   customer portal, payment, or software expiry.

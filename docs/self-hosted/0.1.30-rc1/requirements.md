@@ -39,7 +39,8 @@ support.
 
 Have these ready:
 
-- the complete private distribution handoff from Pleesh;
+- the complete [verified distribution](obtain-and-verify.md);
+- permission to install under the [applicable use terms](use-terms.md);
 - the authorized signing fingerprint confirmed through a separate trusted
   Pleesh contact;
 - root or passwordless authorized `sudo` access;

@@ -2,15 +2,35 @@
 
 > **Version: Snotic Self-Hosted 0.1.30~rc1 | Status: Early Access**
 
-Pleesh supplies this Early Access release through an authorized private
-handoff. It is not a public download. Obtain these files together:
+Download the ten unchanged release files from the
+[Snotic Self-Hosted download page](https://packages.snotic.com/). No login,
+email address, recipient allowlist, or expiring download token is required.
+The page lists the exact size and SHA-256 of every file.
 
-- `Snotic-Self-Hosted-0.1.30-rc1-owner-handoff.tar.gz`;
-- `Snotic-Self-Hosted-0.1.30-rc1-owner-handoff.tar.gz.sha256`;
-- both corresponding `.asc` detached signatures;
-- `hipanel-archive-key.asc` and `hipanel-archive-keyring.gpg`;
-- `INSTALL.txt` and `INSTALL.txt.asc`; and
-- the supplied release notes, use terms, notices, inventories, and signatures.
+!!! warning "Downloading and permission to use are different"
+    The embedded [use grant](use-terms.md) still applies to individually
+    authorized recipients. Downloading alone does not grant permission to
+    install, redistribute, or modify the core application. A proposed public-use
+    supplement is not effective unless separately approved by Pleesh. The
+    signed archive and its terms have not been changed.
+
+Obtain these files together:
+
+- [Complete release archive](https://packages.snotic.com/self-hosted/0.1.30-rc1/Snotic-Self-Hosted-0.1.30-rc1-owner-handoff.tar.gz).
+- [Archive signature](https://packages.snotic.com/self-hosted/0.1.30-rc1/Snotic-Self-Hosted-0.1.30-rc1-owner-handoff.tar.gz.asc).
+- [Archive checksum](https://packages.snotic.com/self-hosted/0.1.30-rc1/Snotic-Self-Hosted-0.1.30-rc1-owner-handoff.tar.gz.sha256).
+- [Checksum signature](https://packages.snotic.com/self-hosted/0.1.30-rc1/Snotic-Self-Hosted-0.1.30-rc1-owner-handoff.tar.gz.sha256.asc).
+- [Armored public key](https://packages.snotic.com/self-hosted/0.1.30-rc1/hipanel-archive-key.asc).
+- [Armored public key signature](https://packages.snotic.com/self-hosted/0.1.30-rc1/hipanel-archive-key.asc.asc).
+- [Binary public keyring](https://packages.snotic.com/self-hosted/0.1.30-rc1/hipanel-archive-keyring.gpg).
+- [Public keyring signature](https://packages.snotic.com/self-hosted/0.1.30-rc1/hipanel-archive-keyring.gpg.asc).
+- [Installation and recovery guide](https://packages.snotic.com/self-hosted/0.1.30-rc1/INSTALL.txt).
+- [Guide signature](https://packages.snotic.com/self-hosted/0.1.30-rc1/INSTALL.txt.asc).
+
+The archive contains the complete release payload, release notes, use terms,
+third-party notices, and verification inventories. Filenames retain the
+released `hipanel` compatibility names. This is Early Access, not a stable
+release or a public APT repository.
 
 The expected owner-handoff archive SHA-256 is:
 
@@ -58,9 +78,11 @@ sha256sum --check "${HANDOFF}.sha256"
 gpgv --keyring ./hipanel-archive-keyring.gpg "${HANDOFF}.asc" "${HANDOFF}"
 ```
 
-Also verify the supplied guide before following it:
+Also verify the public-key companions and supplied guide before following it:
 
 ```shell
+gpgv --keyring ./hipanel-archive-keyring.gpg hipanel-archive-key.asc.asc hipanel-archive-key.asc
+gpgv --keyring ./hipanel-archive-keyring.gpg hipanel-archive-keyring.gpg.asc hipanel-archive-keyring.gpg
 gpgv --keyring ./hipanel-archive-keyring.gpg INSTALL.txt.asc INSTALL.txt
 ```
 

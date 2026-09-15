@@ -1,0 +1,18 @@
+{
+  "version": "0.1.30~rc1",
+  "status": "Early Access",
+  "path": "/self-hosted/0.1.30-rc1/",
+  "fingerprint": "26BAEB9BC68C2AB633FD6B822473AD1517C2A642",
+  "files": [
+    {"name": "Snotic-Self-Hosted-0.1.30-rc1-owner-handoff.tar.gz", "label": "Complete release archive", "size": 49230129, "sha256": "2ca1f61225d85d53ac969456deb181e5cb185b7a4d0cb63b6a16843102485456"},
+    {"name": "Snotic-Self-Hosted-0.1.30-rc1-owner-handoff.tar.gz.asc", "label": "Archive signature", "size": 833, "sha256": "8b24f6cc41dc28c05c10c02162535d2c9dce55966bb627dc148404abfc144f92"},
+    {"name": "Snotic-Self-Hosted-0.1.30-rc1-owner-handoff.tar.gz.sha256", "label": "Archive checksum", "size": 117, "sha256": "773971588e16fc36df0337684a2ff8a0c63c427631ee6e036d7b85390a7f2d24"},
+    {"name": "Snotic-Self-Hosted-0.1.30-rc1-owner-handoff.tar.gz.sha256.asc", "label": "Checksum signature", "size": 833, "sha256": "4a11719d0d3e4accfe2cbbb808bb809fa10bed895f4cac34cc11f5e24f9302e9"},
+    {"name": "hipanel-archive-key.asc", "label": "Armored public key", "size": 1700, "sha256": "a37cef936d17b73589f3737be4ae3f6f93e3c73132426b127e0bae5a36f08fe3"},
+    {"name": "hipanel-archive-key.asc.asc", "label": "Armored public key signature", "size": 833, "sha256": "7c36cfbf2c85acff72b9e02fd843e82506161852c0fa7f191ce7a3c920749344"},
+    {"name": "hipanel-archive-keyring.gpg", "label": "Binary public keyring", "size": 1197, "sha256": "f8a70a5c03bfad9a9471b04be4a55f1116d155c451316f8d952eb3d726236d32"},
+    {"name": "hipanel-archive-keyring.gpg.asc", "label": "Public keyring signature", "size": 833, "sha256": "be160de7d09217498ab837aeab2afcf8ccb5ad7076750e23203ab1eb9f44b137"},
+    {"name": "INSTALL.txt", "label": "Signed installation and recovery guide", "size": 9324, "sha256": "746b7ade29796697d7d426d90ebbc0155573b0a48d14ca9a5c1a0491a355abaa"},
+    {"name": "INSTALL.txt.asc", "label": "Guide signature", "size": 833, "sha256": "26aeca89302697e3687de13e5b0bab0eeb4c9efe92caa44b97bd933976068095"}
+  ]
+}

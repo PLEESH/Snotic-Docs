@@ -12,8 +12,11 @@
 | Channel | Candidate |
 | Offering | Snotic Self-Hosted by Pleesh |
 
-This is a privately distributed Early Access candidate for an approved
-recipient's customer-controlled Ubuntu server. It is not Snotic Managed, a
+This Early Access candidate was originally supplied through an approved
+recipient handoff. The unchanged files are now available for anonymous
+[download](obtain-and-verify.md); installation/use eligibility remains governed
+by the [embedded grant](use-terms.md) unless separately supplemented by Pleesh.
+It is not Snotic Managed, a
 public beta, or a stable-channel promotion. There is no Portal activation,
 payment method, subscription, or seven-day software expiry.
 
