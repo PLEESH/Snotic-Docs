@@ -2,12 +2,16 @@
 
 > **Version: Snotic Self-Hosted 0.1.30~rc1 | Status: Early Access**
 
-!!! warning "Download availability is not an expanded use grant"
-    Anyone may download the release files. The embedded terms reproduced below
-    remain unchanged and apply to individually authorized recipients.
-    Downloading alone does not grant broader installation, redistribution, or
-    modification rights. A proposed separate public-use supplement is not
-    effective unless approved by Pleesh.
+!!! note "Approved public-use eligibility supplement"
+    Pleesh approved the [version 1 eligibility supplement](public-use-supplement-v1.md)
+    on 15 September 2026 for this exact RC1 bundle and package. A person or entity
+    downloading it from a Pleesh-provided or Pleesh-authorized public download
+    qualifies as the recipient without an individual delivery record. All other
+    terms remain unchanged, including one instance on one server per recipient.
+    The original signed grant below is reproduced unchanged; read it together
+    with the separate supplement and retain both offline.
+
+## Original Embedded Grant
 
 Copyright (c) 2026 Pleesh. All rights reserved.
 

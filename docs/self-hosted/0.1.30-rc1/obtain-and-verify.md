@@ -2,17 +2,26 @@
 
 > **Version: Snotic Self-Hosted 0.1.30~rc1 | Status: Early Access**
 
-Download the unchanged product bundle and its verification and installation
-companions from the [Snotic Self-Hosted download page](https://packages.snotic.com/).
-No login, email address, recipient allowlist, or expiring download token is
-required. The page lists the exact size and SHA-256 of each selected file.
+The complete distribution is being prepared for the
+[Snotic Self-Hosted download page](https://packages.snotic.com/).
+The intended public route requires no login, email address, recipient allowlist
+or expiring token. Once released, the page will list the exact size and SHA-256
+of every required file. A prepared page is not a working download service.
 
-!!! warning "Downloading and permission to use are different"
-    The embedded [use grant](use-terms.md) still applies to individually
-    authorized recipients. Downloading alone does not grant permission to
-    install, redistribute, or modify the core application. A proposed separate
-    public-use eligibility supplement is not effective unless approved by
-    Pleesh. The signed bundle and its terms have not been changed.
+!!! note "Approved eligibility; complete distribution required"
+    The [public-use supplement v1](public-use-supplement-v1.md), effective
+    15 September 2026, makes the downloader of this exact distribution from a
+    Pleesh-provided or Pleesh-authorized public download an eligible recipient.
+    The [embedded grant](use-terms.md) otherwise remains unchanged: one instance
+    on one server per recipient, with no additional allowance through repeated
+    downloads and no broader redistribution, modification or service rights.
+
+!!! warning "Publication preparation is not a complete handoff"
+    The signed notice addendum and offline public-use supplement are required,
+    not optional links. Their signatures and final complete inventory are being
+    prepared. The existing-file list below is not yet a complete distribution.
+    Do not install or hand off this partial selection. Keep the software,
+    required documents and all verification files together for offline use.
 
 ## Public file set
 

@@ -12,9 +12,10 @@
 | Channel | Candidate |
 | Offering | Snotic Self-Hosted by Pleesh |
 
-The unchanged product bundle and its selected companions are available for anonymous
-[download](obtain-and-verify.md); installation/use eligibility remains governed
-by the [embedded grant](use-terms.md) unless separately supplemented by Pleesh.
+The unchanged product bundle and required signed companion documents are being
+prepared for anonymous [download](obtain-and-verify.md). Eligibility is governed
+by the [approved public-use supplement v1](public-use-supplement-v1.md), effective
+15 September 2026, together with the otherwise unchanged [embedded grant](use-terms.md).
 It is not Snotic Managed, a
 public beta, or a stable-channel promotion. There is no Portal activation,
 payment method, subscription, or seven-day software expiry.

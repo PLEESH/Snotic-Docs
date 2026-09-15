@@ -42,9 +42,11 @@ independent host snapshot before package changes.
 
 ## Early Access limits
 
-- Anonymous downloading is available, but download availability does not
-  broaden the [embedded use grant](use-terms.md). That grant still applies to
-  individually authorized recipients until a separate supplement is approved.
+- Anonymous downloading is approved; the complete public distribution is still
+  being prepared. The [approved public-use supplement v1](public-use-supplement-v1.md)
+  makes downloaders from a Pleesh-authorized public download eligible recipients.
+  All other [embedded terms](use-terms.md) remain unchanged, including one
+  instance on one server per recipient.
 - The core application is not represented as open source.
 - There is no automatic update, public APT promotion, SLA, managed monitoring,
   customer portal, payment, or software expiry.
